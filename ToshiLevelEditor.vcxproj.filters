@@ -42,6 +42,9 @@
     <ClCompile Include="Trb\Utils.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Trb\Symbols\Materials.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="trb\TRBFile.h">
@@ -327,6 +330,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="include\NvTriStrip.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Trb\Symbols\Materials.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

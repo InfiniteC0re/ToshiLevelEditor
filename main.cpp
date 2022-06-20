@@ -5,6 +5,7 @@
 #include "Trb/TRBFile.h"
 #include "Trb/Symbols/Collision.h"
 #include "Trb/Symbols/Header.h"
+#include "Trb/Symbols/Materials.h"
 
 #include <NvTriStrip.h>
 
@@ -46,11 +47,14 @@ int main()
 	std::cout << "Successfully readed the TRB file" << std::endl;
 
 	SDatabase* db = symb->FindEntryByName<SDatabase>("Database");
-	Collision::SCollision* coll = symb->FindEntryByName<Collision::SCollision>("Collision");
 	Header::SHeader* header = symb->FindEntryByName<Header::SHeader>("Header");
-	
-	// to fix: faces of fbx models are wrong
+
+	Materials::SMaterials* materials = symb->FindEntryByName<Materials::SMaterials>("Materials");
+	std::cout << "Found " << materials->m_count << " materials" << std::endl;
+
 	const aiScene* scene = aiImportFile("./models/sphere_and_cube.fbx", aiProcessPreset_TargetRealtime_MaxQuality);
+	
+	Collision::SCollision* coll = symb->FindEntryByName<Collision::SCollision>("Collision");
 	auto meshData = coll->m_infoArray.m_models[0]->m_meshes[0]->m_meshData;
 	
 	// todo: rebuild whole trb file

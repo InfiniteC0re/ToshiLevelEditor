@@ -155,6 +155,7 @@
     <ClCompile Include="Trb\RELC.cpp" />
     <ClCompile Include="Trb\SECT.cpp" />
     <ClCompile Include="trb\HDRX.cpp" />
+    <ClCompile Include="Trb\Symbols\Materials.cpp" />
     <ClCompile Include="trb\TRBFile.cpp" />
     <ClCompile Include="Trb\Tag.cpp" />
     <ClCompile Include="Trb\TSFL.cpp" />
@@ -252,6 +253,7 @@
     <ClInclude Include="Trb\Symbols\Database.h" />
     <ClInclude Include="Defines.h" />
     <ClInclude Include="Trb\Symbols\Header.h" />
+    <ClInclude Include="Trb\Symbols\Materials.h" />
     <ClInclude Include="trb\TRBFile.h" />
     <ClInclude Include="Trb\Tag.h" />
     <ClInclude Include="Trb\Utils.h" />
