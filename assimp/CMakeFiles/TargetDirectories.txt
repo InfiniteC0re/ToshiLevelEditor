@@ -1,0 +1,15 @@
+C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/CMakeFiles/uninstall.dir
+C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/CMakeFiles/UpdateAssimpLibsDebugSymbolsAndDLLs.dir
+C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/CMakeFiles/INSTALL.dir
+C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/CMakeFiles/ALL_BUILD.dir
+C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/CMakeFiles/ZERO_CHECK.dir
+C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/contrib/zlib/CMakeFiles/zlibstatic.dir
+C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/contrib/zlib/CMakeFiles/INSTALL.dir
+C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/contrib/zlib/CMakeFiles/ALL_BUILD.dir
+C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/CMakeFiles/assimp.dir
+C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/CMakeFiles/INSTALL.dir
+C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/tools/assimp_cmd/CMakeFiles/assimp_cmd.dir
+C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/tools/assimp_cmd/CMakeFiles/INSTALL.dir
+C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/test/CMakeFiles/unit.dir
+C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/test/CMakeFiles/INSTALL.dir
+C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/test/headercheck/CMakeFiles/INSTALL.dir

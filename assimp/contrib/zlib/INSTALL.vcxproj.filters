@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\7d024d3f38f791fef82e105d8e9cb029\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{4F91AA64-93F6-3622-8D4A-3252C3C6FE5B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

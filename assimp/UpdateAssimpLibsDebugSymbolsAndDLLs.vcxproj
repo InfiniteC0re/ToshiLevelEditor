@@ -1,0 +1,477 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F8F608E1-A598-3D95-A1B0-E061770EE0C1}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>Win32</Platform>
+    <ProjectName>UpdateAssimpLibsDebugSymbolsAndDLLs</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>							</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Release/assimp-vc143-mt.dll C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/bin32/assimp-vc143-mt.dll
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Release/assimp-vc143-mt.exp C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mt.exp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Release/assimp-vc143-mt.lib C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mt.lib
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.dll C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/bin32/assimp-vc143-mtd.dll
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.exp C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.exp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.ilk C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.ilk
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.lib C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.lib
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.pdb C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.pdb
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>							</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Release/assimp-vc143-mt.dll C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/bin32/assimp-vc143-mt.dll
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Release/assimp-vc143-mt.exp C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mt.exp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Release/assimp-vc143-mt.lib C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mt.lib
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.dll C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/bin32/assimp-vc143-mtd.dll
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.exp C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.exp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.ilk C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.ilk
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.lib C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.lib
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.pdb C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.pdb
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>							</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Release/assimp-vc143-mt.dll C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/bin32/assimp-vc143-mt.dll
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Release/assimp-vc143-mt.exp C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mt.exp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Release/assimp-vc143-mt.lib C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mt.lib
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.dll C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/bin32/assimp-vc143-mtd.dll
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.exp C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.exp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.ilk C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.ilk
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.lib C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.lib
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.pdb C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.pdb
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>							</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Release/assimp-vc143-mt.dll C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/bin32/assimp-vc143-mt.dll
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Release/assimp-vc143-mt.exp C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mt.exp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Release/assimp-vc143-mt.lib C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mt.lib
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.dll C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/bin32/assimp-vc143-mtd.dll
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.exp C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.exp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.ilk C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.ilk
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.lib C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.lib
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/Debug/assimp-vc143-mtd.pdb C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib32/assimp-vc143-mtd.pdb
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp -BC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp --check-stamp-file C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files\CMake\share\cmake-3.24\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\WriteBasicConfigVersionFile.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeCCompiler.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeCXXCompiler.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeRCCompiler.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeSystem.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\assimp.pc.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\FindDirectX.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\FindPkgMacros.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\FindZLIB.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\PrecompiledHeader.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\assimp-plain-config.cmake.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\cmake_uninstall.cmake.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include\assimp\config.h.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\revision.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp -BC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp --check-stamp-file C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Program Files\CMake\share\cmake-3.24\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\WriteBasicConfigVersionFile.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeCCompiler.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeCXXCompiler.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeRCCompiler.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeSystem.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\assimp.pc.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\FindDirectX.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\FindPkgMacros.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\FindZLIB.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\PrecompiledHeader.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\assimp-plain-config.cmake.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\cmake_uninstall.cmake.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include\assimp\config.h.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\revision.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp -BC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp --check-stamp-file C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Program Files\CMake\share\cmake-3.24\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\WriteBasicConfigVersionFile.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeCCompiler.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeCXXCompiler.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeRCCompiler.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeSystem.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\assimp.pc.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\FindDirectX.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\FindPkgMacros.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\FindZLIB.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\PrecompiledHeader.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\assimp-plain-config.cmake.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\cmake_uninstall.cmake.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include\assimp\config.h.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\revision.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp -BC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp --check-stamp-file C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Program Files\CMake\share\cmake-3.24\Modules\BasicConfigVersion-SameMajorVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\FindPkgConfig.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.24\Modules\WriteBasicConfigVersionFile.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeCCompiler.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeCXXCompiler.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeRCCompiler.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\3.24.0-rc1\CMakeSystem.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\assimp.pc.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\FindDirectX.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\FindPkgMacros.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\FindZLIB.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\PrecompiledHeader.cmake;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\assimp-plain-config.cmake.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\cmake-modules\cmake_uninstall.cmake.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include\assimp\config.h.in;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\revision.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\ZERO_CHECK.proj">
+      <Project>{6A1E2A0E-B915-386D-9F90-B298044F63D6}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

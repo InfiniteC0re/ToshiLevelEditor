@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AFF1E105-A5D9-3858-8168-993403115D7F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>Win32</Platform>
+    <ProjectName>assimp_cmd</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">assimp_cmd.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">assimpd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">assimp_cmd.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">assimp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\bin\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">assimp_cmd.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">assimp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\bin\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">assimp_cmd.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">assimp</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_DEBUG;ASSIMP_BUILD_NO_M3D_IMPORTER;ASSIMP_BUILD_NO_M3D_EXPORTER;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;ASSIMP_BUILD_NO_M3D_IMPORTER;ASSIMP_BUILD_NO_M3D_EXPORTER;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\lib\Debug\assimp-vc143-mtd.lib;..\..\contrib\zlib\Debug\zlibstaticd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp;C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/$(Configuration);C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib;C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib/Debug/assimpd.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/bin/Debug/assimpd.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;ASSIMP_BUILD_NO_M3D_IMPORTER;ASSIMP_BUILD_NO_M3D_EXPORTER;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;ASSIMP_BUILD_NO_M3D_IMPORTER;ASSIMP_BUILD_NO_M3D_EXPORTER;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\lib\Release\assimp-vc143-mt.lib;..\..\contrib\zlib\Release\zlibstatic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp;C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/$(Configuration);C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib;C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib/Release/assimp.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/bin/Release/assimp.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;ASSIMP_BUILD_NO_M3D_IMPORTER;ASSIMP_BUILD_NO_M3D_EXPORTER;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;ASSIMP_BUILD_NO_M3D_IMPORTER;ASSIMP_BUILD_NO_M3D_EXPORTER;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\lib\MinSizeRel\assimp-vc143-mt.lib;..\..\contrib\zlib\MinSizeRel\zlibstatic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp;C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/$(Configuration);C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib;C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib/MinSizeRel/assimp.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/bin/MinSizeRel/assimp.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;ASSIMP_BUILD_NO_M3D_IMPORTER;ASSIMP_BUILD_NO_M3D_EXPORTER;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;ASSIMP_BUILD_NO_M3D_IMPORTER;ASSIMP_BUILD_NO_M3D_EXPORTER;WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;ASSIMP_BUILD_NO_C4D_IMPORTER;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\include;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\.;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd;C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\lib\RelWithDebInfo\assimp-vc143-mt.lib;..\..\contrib\zlib\RelWithDebInfo\zlibstatic.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp;C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/$(Configuration);C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib;C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/lib/RelWithDebInfo/assimp.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/bin/RelWithDebInfo/assimp.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/tools/assimp_cmd/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp -BC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp --check-stamp-file C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/tools/assimp_cmd/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/tools/assimp_cmd/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp -BC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp --check-stamp-file C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/tools/assimp_cmd/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/tools/assimp_cmd/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp -BC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp --check-stamp-file C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/tools/assimp_cmd/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/tools/assimp_cmd/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp -BC:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp --check-stamp-file C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/tools/assimp_cmd/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd\CompareDump.cpp" />
+    <ClCompile Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd\ImageExtractor.cpp" />
+    <ClCompile Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd\Main.cpp" />
+    <ClInclude Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd\Main.h" />
+    <ClCompile Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd\WriteDump.cpp" />
+    <ClCompile Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd\Info.cpp" />
+    <ClCompile Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd\Export.cpp" />
+    <ResourceCompile Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\tools\assimp_cmd\assimp_cmd.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\ZERO_CHECK.proj">
+      <Project>{6A1E2A0E-B915-386D-9F90-B298044F63D6}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\code\assimp.vcxproj">
+      <Project>{7340A8FE-FB4A-3D5D-B573-D597C21B1852}</Project>
+      <Name>assimp</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib\zlibstatic.vcxproj">
+      <Project>{06A59431-32D8-340C-9BFC-F94381CE3AC1}</Project>
+      <Name>zlibstatic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
