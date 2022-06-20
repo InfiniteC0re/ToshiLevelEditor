@@ -4,23 +4,36 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ToshiLevelEditor", "ToshiLevelEditor.vcxproj", "{1CF8A869-38A7-486E-BE22-E47F15757965}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AFF809E9-F6F7-4421-97F5-4D7114613BF3} = {AFF809E9-F6F7-4421-97F5-4D7114613BF3}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NvTriStrip", "NvTriStrip\NvTriStrip-2019.vcxproj", "{AFF809E9-F6F7-4421-97F5-4D7114613BF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
+		MinSizeRel|x86 = MinSizeRel|x86
 		Release|x86 = Release|x86
+		RelWithDebInfo|x86 = RelWithDebInfo|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1CF8A869-38A7-486E-BE22-E47F15757965}.Debug|x86.ActiveCfg = Debug|Win32
 		{1CF8A869-38A7-486E-BE22-E47F15757965}.Debug|x86.Build.0 = Debug|Win32
+		{1CF8A869-38A7-486E-BE22-E47F15757965}.MinSizeRel|x86.ActiveCfg = Release|Win32
+		{1CF8A869-38A7-486E-BE22-E47F15757965}.MinSizeRel|x86.Build.0 = Release|Win32
 		{1CF8A869-38A7-486E-BE22-E47F15757965}.Release|x86.ActiveCfg = Release|Win32
 		{1CF8A869-38A7-486E-BE22-E47F15757965}.Release|x86.Build.0 = Release|Win32
+		{1CF8A869-38A7-486E-BE22-E47F15757965}.RelWithDebInfo|x86.ActiveCfg = Release|Win32
+		{1CF8A869-38A7-486E-BE22-E47F15757965}.RelWithDebInfo|x86.Build.0 = Release|Win32
 		{AFF809E9-F6F7-4421-97F5-4D7114613BF3}.Debug|x86.ActiveCfg = Debug|Win32
 		{AFF809E9-F6F7-4421-97F5-4D7114613BF3}.Debug|x86.Build.0 = Debug|Win32
+		{AFF809E9-F6F7-4421-97F5-4D7114613BF3}.MinSizeRel|x86.ActiveCfg = Release|Win32
+		{AFF809E9-F6F7-4421-97F5-4D7114613BF3}.MinSizeRel|x86.Build.0 = Release|Win32
 		{AFF809E9-F6F7-4421-97F5-4D7114613BF3}.Release|x86.ActiveCfg = Release|Win32
 		{AFF809E9-F6F7-4421-97F5-4D7114613BF3}.Release|x86.Build.0 = Release|Win32
+		{AFF809E9-F6F7-4421-97F5-4D7114613BF3}.RelWithDebInfo|x86.ActiveCfg = Release|Win32
+		{AFF809E9-F6F7-4421-97F5-4D7114613BF3}.RelWithDebInfo|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

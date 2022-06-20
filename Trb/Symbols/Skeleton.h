@@ -44,9 +44,11 @@ namespace Skeleton
 
 		union
 		{
-			AnimationKey* m_keysFallback;
-			AnimationKeyTranslate* m_keysTranslate;
-		};
+			/* CHANNELMODE == CHANNELMODE_FALLBACKTRANSLATE */
+			AnimationKey* m_fallback;
+			/* CHANNELMODE == CHANNELMODE_TRANSLATE */
+			AnimationKeyTranslate* m_translate;
+		} m_keys;
 	};
 
 	struct Animation
