@@ -8,8 +8,12 @@ bool SECT::isLinked = false;
 
 SECT::SECT(FILE* pFile) : TRBTag(pFile)
 {
+	// reading SECT data
 	m_buffer = new char[size];
 	ReadFileData(m_buffer, 1, size, pFile);
+
+	// BTEC
+	assert(*(int*)GetBuffer() != MAKEFOURCC('B', 'T', 'E', 'C') && "Not implemented yet");
 }
 
 SECT::~SECT()

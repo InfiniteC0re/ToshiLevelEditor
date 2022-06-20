@@ -252,8 +252,11 @@
     <ClInclude Include="Trb\Symbols\Collision.h" />
     <ClInclude Include="Trb\Symbols\Database.h" />
     <ClInclude Include="Defines.h" />
+    <ClInclude Include="Trb\Symbols\FileHeader.h" />
     <ClInclude Include="Trb\Symbols\Header.h" />
     <ClInclude Include="Trb\Symbols\Materials.h" />
+    <ClInclude Include="Trb\Symbols\Skeleton.h" />
+    <ClInclude Include="Trb\Symbols\SkeletonHeader.h" />
     <ClInclude Include="trb\TRBFile.h" />
     <ClInclude Include="Trb\Tag.h" />
     <ClInclude Include="Trb\Utils.h" />
