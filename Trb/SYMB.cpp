@@ -6,6 +6,8 @@
 
 SYMB::SYMB(FILE* pFile) : TRBTag(pFile)
 {
+	isLinked = false;
+
 	ReadFileData(&m_count, sizeof(size_t), 1, pFile);
 	m_entries = new SYMBEntry[m_count];
 	m_entriesNames = new std::string[m_count];
@@ -36,6 +38,11 @@ size_t SYMB::GetCount() const
 	return m_count;
 }
 
+bool SYMB::IsLinked() const
+{
+	return isLinked;
+}
+
 const SYMBEntry* SYMB::GetEntry(size_t index) const
 {
 	if (m_count > index)
@@ -56,10 +63,19 @@ const std::string SYMB::GetEntryName(size_t index) const
 	return "";
 }
 
+void* SYMB::Find(std::string name) const
+{
+	for (size_t i = 0; i < m_count; i++)
+	{
+		if (m_entriesNames[i] == name) return m_entries[i].dataOffset;
+	}
+
+	return nullptr;
+}
+
 void SYMB::LinkSECT(SECT* pSect)
 {
 	// todo: support files with few HDRXs
-	static bool isLinked = false;
 	assert(!isLinked && "SYMB can't be linked twice");
 
 	unsigned int dataStart = (unsigned int)pSect->GetBuffer();
@@ -70,4 +86,19 @@ void SYMB::LinkSECT(SECT* pSect)
 	}
 
 	isLinked = true;
+}
+
+void SYMB::UnlinkSECT(SECT* pSect)
+{
+	// todo: support files with few HDRXs
+	assert(isLinked && "SYMB can't be unlinked twice");
+
+	unsigned int dataStart = (unsigned int)pSect->GetBuffer();
+
+	for (size_t i = 0; i < m_count; i++)
+	{
+		m_entries[i].dataOffset -= dataStart;
+	}
+
+	isLinked = false;
 }

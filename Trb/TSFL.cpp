@@ -47,14 +47,28 @@ SYMB* TSFL::GetSYMB()
 	return m_SYMB;
 }
 
-void* TSFL::DumpSECTToFile(const char* filepath)
+void TSFL::Link()
+{
+	// updating all the pointers to be relative to the program memory
+	if (!m_SECT->IsLinked()) m_SECT->LinkRELC(m_RELC);
+	if (!m_SYMB->IsLinked()) m_SYMB->LinkSECT(m_SECT);
+}
+
+void TSFL::Unlink()
+{
+	// updating all the pointers to be relative to the file memory
+	if (m_SECT->IsLinked()) m_SECT->UnlinkRELC(m_RELC);
+	if (m_SYMB->IsLinked()) m_SYMB->UnlinkSECT(m_SECT);
+}
+
+void* TSFL::DumpSECT(const char* filepath)
 {
 	FILE* file;
 	errno_t err = fopen_s(&file, filepath, "wb");
 
 	if (err == 0)
 	{
-		fwrite(m_SECT->GetBuffer(), m_SECT->size, 1, file);
+		fwrite(m_SECT->GetBuffer(), m_SECT->GetBufferSize(), 1, file);
 		fclose(file);
 
 		std::cout << "Dumped SECT to " << filepath << std::endl;

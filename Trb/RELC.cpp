@@ -4,28 +4,27 @@
 
 RELC::RELC(FILE* pFile) : TRBTag(pFile)
 {
-	ReadFileData(&m_count, sizeof(size_t), 1, pFile);
-	assert(m_count >= 0 && "Count of RELC entries cannot be negative");
-	m_entries = new RELCEntry[m_count];
-	ReadFileData(m_entries, sizeof(RELCEntry), m_count, pFile);
+	int count;
+	ReadFileData(&count, sizeof(size_t), 1, pFile);
+	assert(count >= 0 && "Count of RELC entries cannot be negative");
+	m_entries.resize(count);
+
+	ReadFileData(m_entries.data(), sizeof(RELCEntry), count, pFile);
 }
 
 RELC::~RELC()
 {
-	if (m_entries != nullptr)
-	{
-		delete[] m_entries;
-	}
+	m_entries.clear();
 }
 
 size_t RELC::GetCount() const
 {
-	return m_count;
+	return m_entries.size();
 }
 
 RELCEntry RELC::GetEntry(size_t index) const
 {
-	if (m_count > index)
+	if (GetCount() > index)
 	{
 		return m_entries[index];
 	}
@@ -35,5 +34,10 @@ RELCEntry RELC::GetEntry(size_t index) const
 
 const RELCEntry* RELC::GetEntries() const
 {
-	return m_entries;
+	return m_entries.data();
+}
+
+void RELC::Add(short hdrx1, short hdrx2, void* ptr)
+{
+	m_entries.push_back({ hdrx1, hdrx2, (size_t)ptr });
 }

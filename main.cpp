@@ -44,10 +44,10 @@ int main()
 
 	std::cout << "Successfully readed the file" << std::endl;
 
-	Materials::SMaterials* materials = symb->FindEntryByName<Materials::SMaterials>("Materials");
-	Collision::SCollision* coll = symb->FindEntryByName<Collision::SCollision>("Collision");
-	SkeletonHeader::SSkeletonHeader* skeletonHeader = symb->FindEntryByName<SkeletonHeader::SSkeletonHeader>("SkeletonHeader");
-	Skeleton::SSkeleton* skeleton = symb->FindEntryByName<Skeleton::SSkeleton>("Skeleton");
+	Materials::SMaterials* materials = tsfl->FindSymbol<Materials::SMaterials>("Materials");
+	Collision::SCollision* coll = tsfl->FindSymbol<Collision::SCollision>("Collision");
+	SkeletonHeader::SSkeletonHeader* skeletonHeader = tsfl->FindSymbol<SkeletonHeader::SSkeletonHeader>("SkeletonHeader");
+	Skeleton::SSkeleton* skeleton = tsfl->FindSymbol<Skeleton::SSkeleton>("Skeleton");
 	
 	if (materials)
 	{
@@ -123,8 +123,24 @@ int main()
 			GenerateStrips(indices, meshData);
 			std::cout << std::endl << "Successfully replaced the first mesh with the custom one" << std::endl;
 		}
+		
+		/*
+		// Writing our own data to SECT and saving pointers to RELC  
+		
+		// allocates 1 pointer to a float array
+		float** ppArray = tsfl->AllocateSECT<float*>(1);
+
+		// allocates 7 floats and saving the pointer to RELC and to ppArray
+		float* pArray = tsfl->AllocateSECT<float>(7, ppArray);
+		
+		// filling the array
+		for (int i = 0; i < 7; i++)
+		{
+			pArray[i] = (float)(i + 1);
+		}
+		*/
 
 		sect->UnlinkRELC(relc);
-		tsfl->DumpSECTToFile("./DUMP.SECT");
+		tsfl->DumpSECT("./DUMP.SECT");
 	}
 }

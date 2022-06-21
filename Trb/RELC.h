@@ -1,11 +1,12 @@
 #pragma once
 #include "Tag.h"
+#include <vector>
 
 struct RELCEntry
 {
 	short hdrx1;
 	short hdrx2;
-	unsigned int offset;
+	size_t offset;
 };
 
 static_assert(sizeof(RELCEntry) == 8, "invalid size of RELCEntry");
@@ -25,8 +26,10 @@ public:
 	/* Get array of entries */
 	const RELCEntry* GetEntries() const;
 
+	/* Add new entry. ptr should be relative to the file memory */
+	void Add(short hdrx1, short hdrx2, void* ptr);
+
 private:
-	size_t m_count;
-	RELCEntry* m_entries;
+	std::vector<RELCEntry> m_entries;
 };
 
