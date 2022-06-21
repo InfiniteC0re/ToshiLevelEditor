@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "TSFL.h"
 #include "Utils.h"
 
@@ -5,7 +6,8 @@
 
 TSFL::TSFL() : TRBTag("TSFL", 0)
 {
-	strncpy_s(trbf, 4, "HDRX", _TRUNCATE);
+	strncpy(m_trbf, "TRBF", 4);
+
 	m_HDRX = new HDRX();
 	m_SECT = new SECT();
 	m_RELC = new RELC();
@@ -15,7 +17,7 @@ TSFL::TSFL() : TRBTag("TSFL", 0)
 TSFL::TSFL(FILE* pFile) : TRBTag(pFile)
 {
 	// reading magic number
-	ReadFileData(trbf, sizeof(trbf), 1, pFile);
+	ReadFileData(m_trbf, sizeof(m_trbf), 1, pFile);
 
 	// reading file
 	m_HDRX = new HDRX(pFile);
@@ -107,4 +109,27 @@ void TSFL::AddSymbol(unsigned short hdrx, std::string name, short nameID, void* 
 	
 	// linking them back
 	Link();
+}
+
+void TSFL::Write(FILE* pFile)
+{
+	// TSFL
+	TRBTag::Write(pFile);
+	fwrite(m_trbf, 4, 1, pFile);
+
+	// other tags
+	m_HDRX->Write(pFile);
+	m_SECT->Write(pFile);
+	m_RELC->Write(pFile);
+	m_SYMB->Write(pFile);
+}
+
+void TSFL::Calculate(TSFL* tsfl)
+{
+	m_HDRX->Calculate(this);
+	m_SECT->Calculate(this);
+	m_RELC->Calculate(this);
+	m_SYMB->Calculate(this);
+
+	size = 8 * 4 + sizeof(m_trbf) + m_HDRX->size + m_SECT->size + m_RELC->size + m_SYMB->size;
 }

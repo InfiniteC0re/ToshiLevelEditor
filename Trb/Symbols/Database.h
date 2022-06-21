@@ -33,11 +33,21 @@ namespace Database
 		MeshData* m_meshData;
 	};
 
+	struct ModelRenderInfo
+	{
+		Vector3 m_origin;
+		float m_radius;
+		size_t m_unk1;
+		size_t m_unk2;
+		size_t m_unk3;
+	};
+
 	struct Model
 	{
 		char m_customData[0x84];
-		int m_meshCount;
+		size_t m_meshCount;
 		Mesh** m_meshes;
+		ModelRenderInfo* m_subInfo;
 	};
 	
 	struct InfoArray

@@ -46,3 +46,17 @@ void RELC::Add(short hdrx1, short hdrx2, void* ptr)
 {
 	m_entries.push_back({ hdrx1, hdrx2, (size_t)ptr });
 }
+
+void RELC::Calculate(TSFL* tsfl)
+{
+	size = sizeof(size_t) + sizeof(RELCEntry) * m_entries.size();
+}
+
+void RELC::Write(FILE* pFile)
+{
+	TRBTag::Write(pFile);
+	
+	size_t count = m_entries.size();
+	fwrite(&count, sizeof(count), 1, pFile);
+	fwrite(m_entries.data(), sizeof(RELCEntry), count, pFile);
+}

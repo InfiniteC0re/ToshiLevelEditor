@@ -48,6 +48,12 @@ public:
 	/* Create new symbol */
 	void Add(unsigned short hdrx, std::string name, short nameID, void* ptr);
 
+	/* Write to TRB */
+	virtual void Write(FILE* pFile);
+
+	/* Calculate data for writing */
+	virtual void Calculate(TSFL* tsfl);
+
 private:
 	bool isLinked;
 	std::vector<SYMBEntry> m_entries;

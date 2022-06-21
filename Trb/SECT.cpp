@@ -7,6 +7,7 @@
 SECT::SECT() : TRBTag("SECT", 0)
 {
 	size = 0;
+	m_buffer = nullptr;
 	m_bufferSize = 0;
 	isLinked = false;
 }
@@ -94,7 +95,7 @@ void* SECT::AllocMem(size_t size)
 
 	char* newBuffer = new char[newSize]();
 
-	if (oldSize > 0)
+	if (m_buffer != nullptr && oldSize > 0)
 	{
 		// copying old data to the new buffer
 		memcpy(newBuffer, m_buffer, oldSize);
@@ -113,4 +114,18 @@ void* SECT::AllocMem(size_t size)
 bool SECT::IsPtrInBounds(void* ptr)
 {
 	return (ptr >= m_buffer && ptr < m_buffer + m_bufferSize);
+}
+
+void SECT::Write(FILE* pFile)
+{
+	assert(!isLinked && "Unlink SECT before generating TRB");
+
+	TRBTag::Write(pFile);
+	fwrite(GetBuffer(), GetBufferSize(), 1, pFile);
+}
+
+void SECT::Calculate(TSFL* tsfl)
+{
+	assert(!isLinked && "Unlink SECT before calculating it");
+	size = GetBufferSize();
 }

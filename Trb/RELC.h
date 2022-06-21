@@ -30,6 +30,12 @@ public:
 	/* Add new entry. ptr should be relative to the file memory */
 	void Add(short hdrx1, short hdrx2, void* ptr);
 
+	/* Write to TRB */
+	virtual void Write(FILE* pFile);
+
+	/* Calculate data for writing */
+	virtual void Calculate(TSFL* tsfl);
+
 private:
 	std::vector<RELCEntry> m_entries;
 };

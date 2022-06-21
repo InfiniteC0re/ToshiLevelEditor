@@ -19,7 +19,7 @@ SYMB::SYMB(FILE* pFile) : TRBTag(pFile)
 	m_entries.resize(count);
 	m_entriesNames.resize(count);
 
-	long namesOffset = ftell(pFile) + 12 * count;
+	long namesOffset = ftell(pFile) + sizeof(SYMBEntry) * count;
 	ReadFileData(m_entries.data(), sizeof(SYMBEntry), count, pFile);
 
 	for (size_t i = 0; i < count; i++)
@@ -114,4 +114,36 @@ void SYMB::Add(unsigned short hdrx, std::string name, short nameID, void* ptr)
 
 	SYMBEntry symb{ hdrx, 0, nameID, (char*)ptr };
 	m_entries.push_back(symb);
+}
+
+void SYMB::Write(FILE* pFile)
+{
+	assert(!isLinked && "Unlink SYMB before generating TRB");
+	TRBTag::Write(pFile);
+
+	int count = m_entries.size();
+	fwrite(&count, sizeof(count), 1, pFile);
+	fwrite(m_entries.data(), sizeof(SYMBEntry) * count, 1, pFile);
+	
+	// writing names
+	for (int i = 0; i < m_entries.size(); i++)
+	{
+		fwrite(m_entriesNames[i].data(), m_entriesNames[i].length() + 1, 1, pFile);
+	}
+}
+
+void SYMB::Calculate(TSFL* tsfl)
+{
+	assert(!isLinked && "Unlink SYMB before calculating it");
+	size = sizeof(size_t) + sizeof(SYMBEntry) * m_entries.size();
+	size_t nameOffset = 0;
+
+	for (int i = 0; i < m_entries.size(); i++)
+	{
+		m_entries[i].nameOffset = nameOffset;
+
+		size_t nameLen = m_entriesNames[i].length() + 1;
+		size += nameLen;
+		nameOffset += nameLen;
+	}
 }

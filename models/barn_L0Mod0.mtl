@@ -1,0 +1,288 @@
+# Blender MTL File: 'None'
+# Material Count: 26
+
+newmtl barnprops1
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\Prop\\barnprops1.png
+
+newmtl barnroof
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\barnroof.png
+
+newmtl barnwindows
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\barnwindows.png
+
+newmtl bedroom
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\bedroom.png
+
+newmtl black
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\black.png
+
+newmtl blanket
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\blanket.png
+
+newmtl fencepigpen
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\fencepigpen.png
+
+newmtl flowers_1
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\flowers_1.png
+
+newmtl grass_tufts_01
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\grass_tufts_01.png
+
+newmtl grass_tufts_2
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\grass_tufts_2.png
+
+newmtl lamp
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\lamp.png
+
+newmtl large_tuft
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\large_tuft.png
+
+newmtl pigpenjunk
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\pigpenjunk.png
+
+newmtl posters_2
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\posters_2.png
+
+newmtl rock_ground
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\rock_ground.png
+
+newmtl shedroof
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\shedroof.png
+
+newmtl shedside
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\shedside.png
+
+newmtl shedsidecln
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\shedsidecln.png
+
+newmtl shedsidevar
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\shedsidevar.png
+
+newmtl silosim
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\silosim.png
+
+newmtl simbarninterior
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\simbarninterior.png
+
+newmtl strawbed
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\strawbed.png
+
+newmtl telegraph_pole
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\telegraph_pole2.png
+
+newmtl telegraph_pole2
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\telegraph_pole2.png
+
+newmtl telegraph_wires
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\telegraph_wires.png
+
+newmtl tractor2body
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\Prop\\tractor2body.png

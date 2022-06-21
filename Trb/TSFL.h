@@ -4,6 +4,7 @@
 #include "SECT.h"
 #include "RELC.h"
 #include "SYMB.h"
+#include "SECTPtr.h"
 
 #include <cassert>
 #include <iostream>
@@ -33,11 +34,15 @@ public:
 
 	/* Allocate memory in SECT */
 	template<typename T>
-	T* AllocateSECT(int count = 1);
+	SECTPtr<T> AllocateSECT(int count = 1);
 
-	/* Allocate memory in SECT and write a pointer to RELC */
+	/* Allocate memory in SECT and write a pointer using SECTPtr */
 	template<typename T>
-	T* AllocateSECT(int count, void* out);
+	SECTPtr<T> AllocateSECT(SECTPtr<T*> out, int count = 1);
+
+	/* Allocate memory in SECT and write a pointer */
+	template<typename T>
+	SECTPtr<T> AllocateSECT(void* out, int count = 1);
 
 	/* SYMB */
 
@@ -48,8 +53,14 @@ public:
 	/* Add symbol */
 	void AddSymbol(unsigned short hdrx, std::string name, short nameID, void* ptr);
 
+	/* Write to TRB */
+	virtual void Write(FILE* pFile);
+
+	/* Calculate data for writing */
+	virtual void Calculate(TSFL* tsfl);
+
 private:
-	char trbf[4];
+	char m_trbf[4];
 
 	HDRX* m_HDRX;
 	SECT* m_SECT;
@@ -64,7 +75,7 @@ inline T* TSFL::FindSymbol(std::string name) const
 }
 
 template<typename T>
-T* TSFL::AllocateSECT(int count)
+SECTPtr<T> TSFL::AllocateSECT(int count)
 {
 	// unlink everything before moving the data
 	Unlink();
@@ -72,29 +83,50 @@ T* TSFL::AllocateSECT(int count)
 	size_t size = sizeof(T) * count;
 	T* data = (T*)m_SECT->AllocMem(size);
 
+	size_t unlinkedOffset = (size_t)data - (size_t)m_SECT->GetBuffer();
+	SECTPtr<T> ptr(this, unlinkedOffset);
+
 	// link everything back
 	Link();
 
-	return data;
+	return ptr;
 }
 
 template<typename T>
-T* TSFL::AllocateSECT(int count, void* out)
+SECTPtr<T> TSFL::AllocateSECT(SECTPtr<T*> out, int count)
+{
+	assert(m_SECT->IsPtrInBounds(out.data()) && "The pointer isn't in bounds of SECT");
+	
+	// allocating the memory
+	SECTPtr<T> pPtr = AllocateSECT<T>(count);
+
+	// saving the pointer to out
+	*out.data() = pPtr.data();
+
+	// saving the file relative pointer in RELC
+	// todo: hdrx
+	m_RELC->Add(0, 0, (void*)out.offset());
+
+	return pPtr;
+}
+
+template<typename T>
+inline SECTPtr<T> TSFL::AllocateSECT(void* out, int count)
 {
 	assert(out != nullptr && "The pointer can't be null");
 	assert(m_SECT->IsPtrInBounds(out) && "The pointer isn't in bounds of SECT");
-	
+
 	// getting a file relative pointer
 	size_t outUnlinked = (size_t)out - (size_t)m_SECT->GetBuffer();
-	
+
 	// allocating the memory
-	T* pData = AllocateSECT<T>(count);
+	SECTPtr<T> pData = AllocateSECT<T>(count);
 
 	// getting the pointer that will store a pointer to the allocated memory
 	T** outLinked = (T**)(m_SECT->GetBuffer() + outUnlinked);
 
 	// saving the pointer to allocated memory
-	*outLinked = pData;
+	*outLinked = pData.data();
 
 	// saving the file relative pointer in RELC
 	// todo: hdrx

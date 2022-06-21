@@ -150,7 +150,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="samples\level.cpp" />
     <ClCompile Include="Trb\SYMB.cpp" />
     <ClCompile Include="Trb\RELC.cpp" />
     <ClCompile Include="Trb\SECT.cpp" />
@@ -245,6 +245,7 @@
     <ClInclude Include="include\assimp\XMLTools.h" />
     <ClInclude Include="include\assimp\ZipArchiveIOSystem.h" />
     <ClInclude Include="include\NvTriStrip.h" />
+    <ClInclude Include="Trb\SECTPtr.h" />
     <ClInclude Include="Trb\SYMB.h" />
     <ClInclude Include="Trb\RELC.h" />
     <ClInclude Include="Trb\SECT.h" />

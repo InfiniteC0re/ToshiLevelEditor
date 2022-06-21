@@ -31,6 +31,12 @@ public:
 	/* Check if the pointer is in SECT bounds */
 	bool IsPtrInBounds(void* ptr);
 
+	/* Write to TRB */
+	virtual void Write(FILE* pFile);
+
+	/* Calculate data for writing */
+	virtual void Calculate(TSFL* tsfl);
+
 private:
 	bool isLinked;
 	char* m_buffer;
