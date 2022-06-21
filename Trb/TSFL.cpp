@@ -2,6 +2,15 @@
 #include "Utils.h"
 #include <iostream>
 
+TSFL::TSFL() : TRBTag("TSFL", 0)
+{
+	strncpy_s(trbf, 4, "HDRX", _TRUNCATE);
+	m_HDRX = new HDRX();
+	m_SECT = new SECT();
+	m_RELC = new RELC();
+	m_SYMB = new SYMB();
+}
+
 TSFL::TSFL(FILE* pFile) : TRBTag(pFile)
 {
 	// reading magic number
@@ -68,8 +77,10 @@ void* TSFL::DumpSECT(const char* filepath)
 
 	if (err == 0)
 	{
+		Unlink();
 		fwrite(m_SECT->GetBuffer(), m_SECT->GetBufferSize(), 1, file);
 		fclose(file);
+		Link();
 
 		std::cout << "Dumped SECT to " << filepath << std::endl;
 	}

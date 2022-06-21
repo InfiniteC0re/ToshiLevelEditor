@@ -2,7 +2,16 @@
 
 #include "Utils.h"
 #include "SECT.h"
+
 #include <iostream>
+
+SYMB::SYMB() : TRBTag("SYMB", 0)
+{
+	isLinked = false;
+	m_entries = nullptr;
+	m_entriesNames = nullptr;
+	m_count = 0;
+}
 
 SYMB::SYMB(FILE* pFile) : TRBTag(pFile)
 {

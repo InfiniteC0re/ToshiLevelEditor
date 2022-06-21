@@ -4,8 +4,9 @@
 class TRBTag
 {
 public:
+	TRBTag(const char* name, size_t size);
 	TRBTag(FILE* pFile);
 
 	char name[4];
-	int size;
+	size_t size;
 };

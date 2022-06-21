@@ -4,6 +4,7 @@
 class HDRX : public TRBTag
 {
 public:
+	HDRX();
 	HDRX(FILE* pFile);
 };
 

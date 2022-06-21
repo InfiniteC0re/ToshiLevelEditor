@@ -4,7 +4,12 @@
 #include "Utils.h"
 #include <iostream>
 
-bool SECT::isLinked = false;
+SECT::SECT() : TRBTag("SECT", 0)
+{
+	size = 0;
+	m_bufferSize = 0;
+	isLinked = false;
+}
 
 SECT::SECT(FILE* pFile) : TRBTag(pFile)
 {

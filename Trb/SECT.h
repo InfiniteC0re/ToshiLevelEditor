@@ -6,6 +6,7 @@ struct RELC;
 class SECT : public TRBTag
 {
 public:
+	SECT();
 	SECT(FILE* pFile);
 	~SECT();
 
@@ -31,7 +32,7 @@ public:
 	bool IsPtrInBounds(void* ptr);
 
 private:
-	static bool isLinked;
+	bool isLinked;
 	char* m_buffer;
 	size_t m_bufferSize;
 };

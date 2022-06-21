@@ -14,6 +14,7 @@ static_assert(sizeof(RELCEntry) == 8, "invalid size of RELCEntry");
 class RELC : public TRBTag
 {
 public:
+	RELC();
 	RELC(FILE* pFile);
 	~RELC();
 

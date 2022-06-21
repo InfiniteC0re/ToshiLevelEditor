@@ -2,6 +2,11 @@
 #include <cassert>
 #include "Utils.h"
 
+RELC::RELC() : TRBTag("RELC", 0)
+{
+	
+}
+
 RELC::RELC(FILE* pFile) : TRBTag(pFile)
 {
 	int count;

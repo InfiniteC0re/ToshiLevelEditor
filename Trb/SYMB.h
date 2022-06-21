@@ -19,6 +19,7 @@ class SECT;
 class SYMB : public TRBTag
 {
 public:
+	SYMB();
 	SYMB(FILE* pFile);
 	~SYMB();
 

@@ -6,10 +6,12 @@
 #include "SYMB.h"
 
 #include <cassert>
+#include <iostream>
 
 class TSFL : public TRBTag
 {
 public:
+	TSFL();
 	TSFL(FILE* pFile);
 	~TSFL();
 
