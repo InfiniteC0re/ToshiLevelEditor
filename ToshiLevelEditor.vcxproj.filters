@@ -42,7 +42,7 @@
     <ClCompile Include="Trb\Symbols\Materials.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="samples\writing_to_sect.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

@@ -8,23 +8,21 @@
 SYMB::SYMB() : TRBTag("SYMB", 0)
 {
 	isLinked = false;
-	m_entries = nullptr;
-	m_entriesNames = nullptr;
-	m_count = 0;
 }
 
 SYMB::SYMB(FILE* pFile) : TRBTag(pFile)
 {
 	isLinked = false;
 
-	ReadFileData(&m_count, sizeof(size_t), 1, pFile);
-	m_entries = new SYMBEntry[m_count];
-	m_entriesNames = new std::string[m_count];
+	int count;
+	ReadFileData(&count, sizeof(size_t), 1, pFile);
+	m_entries.resize(count);
+	m_entriesNames.resize(count);
 
-	long namesOffset = ftell(pFile) + 12 * m_count;
-	ReadFileData(m_entries, sizeof(SYMBEntry), m_count, pFile);
+	long namesOffset = ftell(pFile) + 12 * count;
+	ReadFileData(m_entries.data(), sizeof(SYMBEntry), count, pFile);
 
-	for (size_t i = 0; i < m_count; i++)
+	for (size_t i = 0; i < count; i++)
 	{
 		int nameOffset = namesOffset + m_entries[i].nameOffset;
 		m_entriesNames[i] = read_str_offset(pFile, nameOffset);
@@ -33,18 +31,13 @@ SYMB::SYMB(FILE* pFile) : TRBTag(pFile)
 
 SYMB::~SYMB()
 {
-	if (m_entries)
-	{
-		delete[] m_entries;
-		delete[] m_entriesNames;
-
-		m_count = 0;
-	}
+	m_entries.clear();
+	m_entriesNames.clear();
 }
 
-size_t SYMB::GetCount() const
+inline size_t SYMB::GetCount() const
 {
-	return m_count;
+	return m_entries.size();
 }
 
 bool SYMB::IsLinked() const
@@ -54,7 +47,7 @@ bool SYMB::IsLinked() const
 
 const SYMBEntry* SYMB::GetEntry(size_t index) const
 {
-	if (m_count > index)
+	if (GetCount() > index)
 	{
 		return &m_entries[index];
 	}
@@ -64,7 +57,7 @@ const SYMBEntry* SYMB::GetEntry(size_t index) const
 
 const std::string SYMB::GetEntryName(size_t index) const
 {
-	if (m_count > index)
+	if (GetCount() > index)
 	{
 		return m_entriesNames[index];
 	}
@@ -74,7 +67,8 @@ const std::string SYMB::GetEntryName(size_t index) const
 
 void* SYMB::Find(std::string name) const
 {
-	for (size_t i = 0; i < m_count; i++)
+	int count = GetCount();
+	for (size_t i = 0; i < count; i++)
 	{
 		if (m_entriesNames[i] == name) return m_entries[i].dataOffset;
 	}
@@ -89,7 +83,8 @@ void SYMB::LinkSECT(SECT* pSect)
 
 	unsigned int dataStart = (unsigned int)pSect->GetBuffer();
 
-	for (size_t i = 0; i < m_count; i++)
+	int count = GetCount();
+	for (size_t i = 0; i < count; i++)
 	{
 		m_entries[i].dataOffset += dataStart;
 	}
@@ -104,10 +99,19 @@ void SYMB::UnlinkSECT(SECT* pSect)
 
 	unsigned int dataStart = (unsigned int)pSect->GetBuffer();
 
-	for (size_t i = 0; i < m_count; i++)
+	int count = GetCount();
+	for (size_t i = 0; i < count; i++)
 	{
 		m_entries[i].dataOffset -= dataStart;
 	}
 
 	isLinked = false;
+}
+
+void SYMB::Add(unsigned short hdrx, std::string name, short nameID, void* ptr)
+{
+	m_entriesNames.push_back(name);
+
+	SYMBEntry symb{ hdrx, 0, nameID, (char*)ptr };
+	m_entries.push_back(symb);
 }

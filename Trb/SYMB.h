@@ -1,13 +1,14 @@
 #pragma once
 #include "Tag.h"
 #include <string>
+#include <vector>
 
 #pragma pack(push, 1)
 struct SYMBEntry
 {
-	short hdrx;
+	unsigned short hdrx;
 	size_t nameOffset;
-	short nameID;
+	unsigned short nameID;
 	char* dataOffset;
 };
 #pragma pack(pop)
@@ -24,7 +25,7 @@ public:
 	~SYMB();
 
 	/* Get count of SYMB entries */
-	size_t GetCount() const;
+	inline size_t GetCount() const;
 
 	/* Returns true if SYMB is linked to SECT */
 	bool IsLinked() const;
@@ -44,9 +45,11 @@ public:
 	/* Update pointers to be relative to the file memory */
 	void UnlinkSECT(SECT* pSect);
 
+	/* Create new symbol */
+	void Add(unsigned short hdrx, std::string name, short nameID, void* ptr);
+
 private:
 	bool isLinked;
-	size_t m_count;
-	SYMBEntry* m_entries;
-	std::string* m_entriesNames;
+	std::vector<SYMBEntry> m_entries;
+	std::vector<std::string> m_entriesNames;
 };

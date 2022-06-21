@@ -45,6 +45,9 @@ public:
 	template<typename T>
 	inline T* FindSymbol(std::string name) const;
 
+	/* Add symbol */
+	void AddSymbol(unsigned short hdrx, std::string name, short nameID, void* ptr);
+
 private:
 	char trbf[4];
 
