@@ -1,7 +1,7 @@
 # ToshiLevelEditor
 
 Games support:
-- Barnyard (is able to replace meshes but not to rebuild TRB files yet)
+- Barnyard (doesn't have shadows support yet)
 
 ## Building
 Build Assimp in x86 mode before building ToshiLevelEditor

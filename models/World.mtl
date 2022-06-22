@@ -1,0 +1,1112 @@
+newmtl grass_tufts_2
+illum 1
+map_Kd World\grass_tufts_2.tga
+
+newmtl flowers_1
+illum 1
+map_Kd World\flowers_1.tga
+
+newmtl fencepigpen
+illum 1
+map_Kd World\fencepigpen.tga
+
+newmtl tyre
+illum 1
+map_Kd Prop\tyre.tga
+
+newmtl barnprops1
+illum 1
+map_Kd Prop\barnprops1.tga
+
+newmtl wood_plank_1
+illum 1
+map_Kd World\wood_plank_1.tga
+
+newmtl metal_tank
+illum 1
+map_Kd World\metal_tank.tga
+
+newmtl pigpenjunk
+illum 1
+map_Kd World\pigpenjunk.tga
+
+newmtl grass_tufts_01
+illum 1
+map_Kd World\grass_tufts_01.tga
+
+newmtl mudpuddleyard
+illum 1
+map_Kd World\mudpuddleyard.tga
+
+newmtl gardentile
+illum 1
+map_Kd World\gardentile.tga
+
+newmtl gardenedge
+illum 1
+map_Kd World\gardenedge.tga
+
+newmtl hillshoist
+illum 1
+map_Kd World\hillshoist.tga
+
+newmtl beadyhouse2
+illum 1
+map_Kd World\beadyhouse2.tga
+
+newmtl tshedside
+illum 1
+map_Kd World\tshedside.tga
+
+newmtl fhdoors
+illum 1
+map_Kd World\fhdoors.tga
+
+newmtl tshedroof
+illum 1
+map_Kd World\tshedroof.tga
+
+newmtl shedroof
+illum 1
+map_Kd World\shedroof.tga
+
+newmtl telegraph_wires
+illum 1
+map_Kd World\telegraph_wires.tga
+
+newmtl tractor2body
+illum 1
+map_Kd Prop\tractor2body.tga
+
+newmtl tractor2wheel
+illum 1
+map_Kd Prop\tractor2wheel.tga
+
+newmtl pipemetmat
+illum 1
+map_Kd World\pipemet.tga
+
+newmtl pipesidemat
+illum 1
+map_Kd World\pipeside.tga
+
+newmtl pipmbigmat
+illum 1
+map_Kd World\pipemetbig_mud.tga
+
+newmtl pipmtopmat
+illum 1
+map_Kd World\pipemettop.tga
+
+newmtl shedside
+illum 1
+map_Kd World\shedside.tga
+
+newmtl shedsidecln
+illum 1
+map_Kd World\shedsidecln.tga
+
+newmtl black
+illum 1
+map_Kd World\black.tga
+
+newmtl blackboard
+illum 1
+map_Kd Prop\blackboard.tga
+
+newmtl fhroof
+illum 1
+map_Kd World\fhroof.tga
+
+newmtl fhwindows
+illum 1
+map_Kd World\fhwindows.tga
+
+newmtl fhwall
+illum 1
+map_Kd World\fhwall.tga
+
+newmtl fhchairs
+illum 1
+map_Kd World\fhchairs.tga
+
+newmtl fhporch
+illum 1
+map_Kd World\fhporch.tga
+
+newmtl ccroof
+illum 1
+map_Kd World\ccroof.tga
+
+newmtl barnflrfade
+illum 1
+map_Kd World\barnflrfade.tga
+
+newmtl ccwall
+illum 1
+map_Kd World\ccwall.tga
+
+newmtl crate
+illum 1
+map_Kd World\crate.tga
+
+newmtl sprinkler
+illum 1
+map_Kd World\sprinkler.tga
+
+newmtl drtr2grass2
+illum 1
+map_Kd World\drtr2grass2.tga
+
+newmtl drtrdrk
+illum 1
+map_Kd World\drtrdrk.tga
+
+newmtl drtredge
+illum 1
+map_Kd World\drtredge.tga
+
+newmtl drtrtile
+illum 1
+map_Kd World\drtrtile.tga
+
+newmtl drtrtreadtile
+illum 1
+map_Kd World\drtrtreadtile.tga
+
+newmtl pigpenmud
+illum 1
+map_Kd World\pigpenmud.tga
+
+newmtl pigpen
+illum 1
+map_Kd World\pigpen.tga
+
+newmtl pigpenedge
+illum 1
+map_Kd World\pigpenedge.tga
+
+newmtl drtrrim
+illum 1
+map_Kd World\drtrrim.tga
+
+newmtl barnwindows
+illum 1
+map_Kd World\barnwindows.tga
+
+newmtl grassmain
+illum 1
+map_Kd World\grassmain.tga
+
+newmtl nightlight
+illum 1
+map_Kd World\nightlight.tga
+
+newmtl silosim
+illum 1
+map_Kd World\silosim.tga
+
+newmtl silo
+illum 1
+map_Kd World\silo.tga
+
+newmtl simbarninterior
+illum 1
+map_Kd World\simbarninterior.tga
+
+newmtl bedroom
+illum 1
+map_Kd World\bedroom.tga
+
+newmtl large_tuft
+illum 1
+map_Kd World\large_tuft.tga
+
+newmtl barnroof
+illum 1
+map_Kd World\barnroof.tga
+
+newmtl lamp
+illum 1
+map_Kd World\lamp.tga
+
+newmtl shedsidevar
+illum 1
+map_Kd World\shedsidevar.tga
+
+newmtl telegraph_pole2
+illum 1
+map_Kd World\telegraph_pole2.tga
+
+newmtl telegraph_pole
+illum 1
+map_Kd World\telegraph_pole2.tga
+
+newmtl rock_ground
+illum 1
+map_Kd World\rock_ground.tga
+
+newmtl strawbed
+illum 1
+map_Kd World\strawbed.tga
+
+newmtl posters_2
+illum 1
+map_Kd World\posters_2.tga
+
+newmtl blanket
+illum 1
+map_Kd World\blanket.tga
+
+newmtl bucket
+illum 1
+map_Kd Prop\bucket.tga
+
+newmtl bucket_handle
+illum 1
+map_Kd Prop\bucket_handle.tga
+
+newmtl drtrtire
+illum 1
+map_Kd World\drtrtire.tga
+
+newmtl drtwall
+illum 1
+map_Kd World\drtwall.tga
+
+newmtl drtr2tire
+illum 1
+map_Kd World\drtr2tire.tga
+
+newmtl gatebits
+illum 1
+map_Kd World\gatebits.tga
+
+newmtl grass_tufts
+illum 1
+map_Kd World\grass_tufts_01.tga
+
+newmtl cratechest
+illum 1
+map_Kd Prop\cratey.tga
+
+newmtl golfClubBranch_base
+illum 1
+map_Kd Prop\Trees\trunk_brown.tga
+
+newmtl trunk_brown
+illum 1
+map_Kd Prop\Trees\trunk_brown.tga
+
+newmtl wood_trunk
+illum 1
+map_Kd World\wood_trunk.tga
+
+newmtl mail_box_01
+illum 1
+map_Kd Prop\mail_box_01.tga
+
+newmtl mailbox
+illum 1
+map_Kd Prop\mailbox.tga
+
+newmtl beadywindows
+illum 1
+map_Kd World\beadywindows.tga
+
+newmtl beadytiles
+illum 1
+map_Kd World\beadytiles.tga
+
+newmtl beadypath
+illum 1
+map_Kd World\beadypath.tga
+
+newmtl beadywall
+illum 1
+map_Kd World\beadywall.tga
+
+newmtl beadygarage
+illum 1
+map_Kd World\beadygarage.tga
+
+newmtl beadyhouse
+illum 1
+map_Kd World\beadyhouse.tga
+
+newmtl beadytiles2
+illum 1
+map_Kd World\beadytiles2.tga
+
+newmtl golf10_fencepicket
+illum 1
+map_Kd World\golf10_fencepicket.tga
+
+newmtl telgraph_wires
+illum 1
+map_Kd World\telegraph_wires.tga
+
+newmtl cornwall
+illum 1
+map_Kd Prop\cornwall.tga
+
+newmtl fncbrwnmat
+illum 1
+map_Kd World\fencebrown.tga
+
+newmtl sign
+illum 1
+map_Kd World\sign.tga
+
+newmtl garagetiles
+illum 1
+map_Kd World\garagetiles.tga
+
+newmtl garage2
+illum 1
+map_Kd World\garage2.tga
+
+newmtl garage2side
+illum 1
+map_Kd World\garage2side.tga
+
+newmtl beadygarage2
+illum 1
+map_Kd World\beadygarage2.tga
+
+newmtl beadytiles3
+illum 1
+map_Kd World\beadytiles3.tga
+
+newmtl patchgrnd_new
+illum 1
+map_Kd World\patchgrnd_new.tga
+
+newmtl patchedge_new
+illum 1
+map_Kd World\patchedge_new.tga
+
+newmtl mudpuddlewide
+illum 1
+map_Kd World\mudpuddlewide.tga
+
+newmtl asph2drtr2edge
+illum 1
+map_Kd World\asph2drtr2edge.tga
+
+newmtl corrugiron
+illum 1
+map_Kd World\corrugiron.tga
+
+newmtl clothesbasket
+illum 1
+map_Kd World\clothesbasket.tga
+
+newmtl drtbtrack
+illum 1
+map_Kd World\drtbtrack.tga
+
+newmtl drtbrim
+illum 1
+map_Kd World\drtbrim.tga
+
+newmtl drtwall5
+illum 1
+map_Kd World\drtwall5.tga
+
+newmtl drtwall3
+illum 1
+map_Kd World\drtwall3.tga
+
+newmtl drtb2bdrtr
+illum 1
+map_Kd World\drtb2drtr.tga
+
+newmtl forpath1
+illum 1
+map_Kd World\forpath1.tga
+
+newmtl forpath2
+illum 1
+map_Kd World\forpath2.tga
+
+newmtl drtroad
+illum 1
+map_Kd World\drtroad.tga
+
+newmtl ladder_bean
+illum 1
+map_Kd Prop\ladder_bean.tga
+
+newmtl fenceold
+illum 1
+map_Kd World\fenceold.tga
+
+newmtl pipemets
+illum 1
+map_Kd World\pipemets.tga
+
+newmtl cliffsmall
+illum 1
+map_Kd World\cliffsmall.tga
+
+newmtl drtwall4
+illum 1
+map_Kd World\drtwall4.tga
+
+newmtl treewall01
+illum 1
+map_Kd World\treewall01.tga
+
+newmtl treewall01edge
+illum 1
+map_Kd World\treewall01edge.tga
+
+newmtl granite_old
+illum 1
+map_Kd World\granite_old.tga
+
+newmtl hill02
+illum 1
+map_Kd World\hill02.tga
+
+newmtl bckgfield
+illum 1
+map_Kd World\bckgfield.tga
+
+newmtl bckghills
+illum 1
+map_Kd World\bckghills.tga
+
+newmtl barnside
+illum 1
+map_Kd World\barnside.tga
+
+newmtl grassrim
+illum 1
+map_Kd World\grassrim.tga
+
+newmtl silo2
+illum 1
+map_Kd World\silo2.tga
+
+newmtl treewall02
+illum 1
+map_Kd World\treewall02.tga
+
+newmtl treewall02edge
+illum 1
+map_Kd World\treewall02edge.tga
+
+newmtl cliffdesert
+illum 1
+map_Kd World\cliffdesert.tga
+
+newmtl drt2water
+illum 1
+map_Kd World\drt2water.tga
+
+newmtl drtbdark
+illum 1
+map_Kd World\drtbdark.tga
+
+newmtl cliffmesatop
+illum 1
+map_Kd World\cliffmesatop.tga
+
+newmtl cliffhoodoo
+illum 1
+map_Kd World\cliffhoodoo.tga
+
+newmtl drt2grass
+illum 1
+map_Kd World\drt2grass.tga
+
+newmtl grassbckg
+illum 1
+map_Kd World\grassbckg.tga
+
+newmtl water_rings
+illum 1
+map_Kd World\water_rings.tga
+
+newmtl waterfall
+illum 1
+map_Kd World\water_rings.tga
+
+newmtl water_env
+illum 1
+map_Kd World\water_night.tga
+
+newmtl waterscum
+illum 1
+map_Kd World\waterscum.tga
+
+newmtl lily_pond
+illum 1
+map_Kd World\lily_pond.tga
+
+newmtl cliffmesa
+illum 1
+map_Kd World\cliffmesa.tga
+
+newmtl drtbedge
+illum 1
+map_Kd World\drtbedge.tga
+
+newmtl trunk2H
+illum 1
+map_Kd Prop\Trees\trunk2H.tga
+
+newmtl trunkmossy
+illum 1
+map_Kd World\trunkmossy.tga
+
+newmtl rootmoss
+illum 1
+map_Kd World\rootmoss.tga
+
+newmtl drtwall2
+illum 1
+map_Kd World\drtwall2.tga
+
+newmtl willowvines
+illum 1
+map_Kd World\willowvines.tga
+
+newmtl asph2drtr2
+illum 1
+map_Kd World\asph2drtr2.tga
+
+newmtl golfbooth
+illum 1
+map_Kd World\golfbooth.tga
+
+newmtl golfpave
+illum 1
+map_Kd World\golfpave.tga
+
+newmtl asphroad
+illum 1
+map_Kd World\asphroad.tga
+
+newmtl asphtile
+illum 1
+map_Kd World\asphtile.tga
+
+newmtl golfpillar
+illum 1
+map_Kd World\golfpillar.tga
+
+newmtl golfsign
+illum 1
+map_Kd World\golfsign.tga
+
+newmtl fence_post
+illum 1
+map_Kd World\fence_post.tga
+
+newmtl fence_mesh
+illum 1
+map_Kd World\fence_wire.tga
+
+newmtl golfwall
+illum 1
+map_Kd World\golfwall.tga
+
+newmtl entrance_post
+illum 1
+map_Kd World\golf_entrance.tga
+
+newmtl bridge
+illum 1
+map_Kd World\bridge.tga
+
+newmtl bike_flags
+illum 1
+map_Kd Prop\bike_flags.tga
+
+newmtl golf_clubhouse_1
+illum 1
+map_Kd World\golf_clubhouse_1.tga
+
+newmtl golf_clubhouse_2
+illum 1
+map_Kd World\golf_clubhouse_2.tga
+
+newmtl clubhouse_glass
+illum 1
+map_Kd World\clubhouse_glass.tga
+
+newmtl path_1
+illum 1
+map_Kd World\path_1.tga
+
+newmtl path2
+illum 1
+map_Kd World\path_1.tga
+
+newmtl drt2asph
+illum 1
+map_Kd World\drt2asph.tga
+
+newmtl orig_golf_statue
+illum 1
+map_Kd World\golf_statue.tga
+
+newmtl statuebase
+illum 1
+map_Kd World\statuebase.tga
+
+newmtl drtrroadend
+illum 1
+map_Kd World\drtrroadend.tga
+
+newmtl garden_light
+illum 1
+map_Kd World\garden_light.tga
+
+newmtl path_1_dirt
+illum 1
+map_Kd World\path_1_dirt.tga
+
+newmtl wood_type_1
+illum 1
+map_Kd World\wood_plank_1.tga
+
+newmtl golfballwhite
+illum 1
+map_Kd World\golfballwhite.tga
+
+newmtl clubhouse_insets
+illum 1
+map_Kd World\clubhouse_insets.tga
+
+newmtl cliffsandy
+illum 1
+map_Kd World\cliffsandy.tga
+
+newmtl sand
+illum 1
+map_Kd World\sand.tga
+
+newmtl clubhouse_wall
+illum 1
+map_Kd World\clubhouse_wall.tga
+
+newmtl clubhouse_roof
+illum 1
+map_Kd World\clubhouse_roof.tga
+
+newmtl sign_golf_course
+illum 1
+map_Kd World\sign_golf_course.tga
+
+newmtl rockmossmap
+illum 1
+map_Kd World\rockmossy.tga
+
+newmtl lawnmower
+illum 1
+map_Kd World\lawnmower.tga
+
+newmtl golf_cart
+illum 1
+map_Kd World\golf_cart.tga
+
+newmtl flwrprplmat
+illum 1
+map_Kd World\flowerpurple.tga
+
+newmtl golfrock
+illum 1
+map_Kd World\golfrock.tga
+
+newmtl tee_ball_cleaner
+illum 1
+map_Kd World\tee_ball_cleaner.tga
+
+newmtl tee_sign
+illum 1
+map_Kd World\tee_sign.tga
+
+newmtl tee_sphere
+illum 1
+map_Kd World\tee_sphere.tga
+
+newmtl rake
+illum 1
+map_Kd World\rake.tga
+
+newmtl flowers_2
+illum 1
+map_Kd World\flower_2.tga
+
+newmtl water_env2
+illum 1
+map_Kd World\water_night.tga
+
+newmtl tunnel
+illum 1
+map_Kd World\tunnel.tga
+
+newmtl tunneldirt
+illum 1
+map_Kd World\tunneldirt.tga
+
+newmtl fencewhite
+illum 1
+map_Kd World\fencewhite.tga
+
+newmtl drtgrtrack
+illum 1
+map_Kd World\drtgtrack.tga
+
+newmtl drtgtrackbr
+illum 1
+map_Kd World\drtgtrackbr.tga
+
+newmtl drtgtracke
+illum 1
+map_Kd World\drtgtracke.tga
+
+newmtl tree2H
+illum 1
+map_Kd Prop\Trees\trunk3_10.tga
+
+newmtl root
+illum 1
+map_Kd World\root.tga
+
+newmtl gophersign
+illum 1
+map_Kd Prop\gophersign.tga
+
+newmtl fencepicket
+illum 1
+map_Kd World\fencepicket.tga
+
+newmtl grass_desert
+illum 1
+map_Kd World\grass_desert.tga
+
+newmtl junkupper
+illum 1
+map_Kd World\junkupper.tga
+
+newmtl junk1
+illum 1
+map_Kd World\junk1.tga
+
+newmtl junkground
+illum 1
+map_Kd World\junkground.tga
+
+newmtl junk2dirt
+illum 1
+map_Kd World\junk2dirt.tga
+
+newmtl BeadyCar
+illum 1
+map_Kd Prop\beadycar_rust.tga
+
+newmtl junkalpha
+illum 1
+map_Kd World\junkalpha.tga
+
+newmtl drtbtile
+illum 1
+map_Kd World\drtbtile.tga
+
+newmtl granite_rock
+illum 1
+map_Kd World\granite_rock.tga
+
+newmtl ropebridge
+illum 1
+map_Kd World\ropebridge.tga
+
+newmtl drtgtrackb
+illum 1
+map_Kd World\drtgtrackb.tga
+
+newmtl Material_#53276
+illum 1
+map_Kd Prop\Trees\trunk3_10.tga
+
+newmtl pre_grass
+illum 1
+map_Kd World\grassmain.tga
+
+newmtl barbedwire
+illum 1
+map_Kd World\barbedwire.tga
+
+newmtl fencemesh
+illum 1
+map_Kd World\fencemesh.tga
+
+newmtl junksign
+illum 1
+map_Kd World\junksign.tga
+
+newmtl trunk3H
+illum 1
+map_Kd Prop\Trees\trunk3H.tga
+
+newmtl junk2path
+illum 1
+map_Kd World\junk2path.tga
+
+newmtl crane
+illum 1
+map_Kd Prop\crane.tga
+
+newmtl piperusty
+illum 1
+map_Kd World\piperusty.tga
+
+newmtl junkdrt
+illum 1
+map_Kd World\junkdrt.tga
+
+newmtl junkgroundv
+illum 1
+map_Kd World\junkgroundv.tga
+
+newmtl drtb2path
+illum 1
+map_Kd World\drtb2path.tga
+
+newmtl drtbtrackalt
+illum 1
+map_Kd World\drtbtrackalt.tga
+
+newmtl bus_glass
+illum 1
+map_Kd Prop\bus_glass.tga
+
+newmtl schoolbus
+illum 1
+map_Kd Prop\schoolbus.tga
+
+newmtl cranea
+illum 1
+map_Kd Prop\cranea.tga
+
+newmtl tractorrusty
+illum 1
+map_Kd Prop\tractorrusty.tga
+
+newmtl tvbroken
+illum 1
+map_Kd Prop\tvbroken.tga
+
+newmtl jfireplace
+illum 1
+map_Kd Prop\jfireplace.tga
+
+newmtl jwood
+illum 1
+map_Kd Prop\jwood.tga
+
+newmtl throne
+illum 1
+map_Kd Prop\throne.tga
+
+newmtl spring
+illum 1
+map_Kd World\spring.tga
+
+newmtl junk_crane
+illum 1
+map_Kd Prop\jcrane.tga
+
+newmtl hutruined
+illum 1
+map_Kd World\hutruined.tga
+
+newmtl junkgrass
+illum 1
+map_Kd World\junkgrass.tga
+
+newmtl junkbanke
+illum 1
+map_Kd World\junkbanke.tga
+
+newmtl junkgrpatch
+illum 1
+map_Kd World\junkgrpatch.tga
+
+newmtl junkgroundv2
+illum 1
+map_Kd World\junkgroundv2.tga
+
+newmtl junkbank
+illum 1
+map_Kd World\junkbank.tga
+
+newmtl junkgrpatche
+illum 1
+map_Kd World\junkgrpatche.tga
+
+newmtl roadend
+illum 1
+map_Kd World\roadend.tga
+
+newmtl stubble_edge_01
+illum 1
+map_Kd World\stubble_edge_01.tga
+
+newmtl lounge_chair
+illum 1
+map_Kd World\lounge_chair.tga
+
+newmtl Trough_Bath_01
+illum 1
+map_Kd Prop\Trough_Bath_01.tga
+
+newmtl water_tank
+illum 1
+map_Kd World\water_tank.tga
+
+newmtl stubble_tile_01
+illum 1
+map_Kd World\stubble_tile_01.tga
+
+newmtl grass2hay
+illum 1
+map_Kd World\grass2hay.tga
+
+newmtl hay_tufts
+illum 1
+map_Kd World\hay_tufts_01.tga
+
+newmtl sunflowerwall
+illum 1
+map_Kd World\sunflowerwall.tga
+
+newmtl veggie_vines
+illum 1
+map_Kd World\veggie_vines.tga
+
+newmtl patchtile_new
+illum 1
+map_Kd World\patchtile_new.tga
+
+newmtl drtr2patch_new
+illum 1
+map_Kd World\drtr2patch_new.tga
+
+newmtl Material_#9420
+illum 1
+map_Kd World\simsigns.tga
+
+newmtl cable_spool
+illum 1
+map_Kd World\cable_spool.tga
+
+newmtl drtbridgewtr
+illum 1
+map_Kd World\drtbridgewtr.tga
+
+newmtl drtbridgerd
+illum 1
+map_Kd World\drtbridgerd.tga
+
+newmtl oar_locks
+illum 1
+map_Kd World\oar_locks.tga
+
+newmtl mudpuddle
+illum 1
+map_Kd World\mudpuddle.tga
+
+newmtl cliffdrtr
+illum 1
+map_Kd World\cliffdrtr.tga
+
+newmtl bridgefloor
+illum 1
+map_Kd World\bridgefloor.tga
+
+newmtl bridgeedge
+illum 1
+map_Kd World\bridgeedge.tga
+
+newmtl bridgelrg
+illum 1
+map_Kd World\bridgelrg.tga
+
+newmtl bridge2floor
+illum 1
+map_Kd World\bridge2floor.tga
+
+newmtl willowq3
+illum 1
+map_Kd Prop\Trees\willowq3.tga
+
+newmtl willowq2
+illum 1
+map_Kd Prop\Trees\willowq2.tga
+
+newmtl willowdanglies
+illum 1
+map_Kd World\willowdanglies.tga
+
+newmtl willowfronds
+illum 1
+map_Kd World\willowfronds.tga
+
+newmtl willowq4
+illum 1
+map_Kd Prop\Trees\willowq4.tga
+
+newmtl willowq1
+illum 1
+map_Kd Prop\Trees\willowq1.tga
+
+newmtl fncgrymat
+illum 1
+map_Kd World\fencepine.tga
+
+newmtl postgrymat
+illum 1
+map_Kd World\postpine.tga
+
+newmtl tree_backdrop_1
+illum 1
+map_Kd World\tree_backdrop_1.tga
+
+newmtl gridconc
+illum 1
+map_Kd World\gridconc.tga
+
+newmtl barrier
+illum 1
+map_Kd World\barrier.tga
+
+newmtl signs_1
+illum 1
+map_Kd World\signs_1.tga
+
+newmtl forest_gate
+illum 1
+map_Kd World\forest_gate.tga
+
+newmtl 08_-_Default
+illum 1
+map_Kd World\grass_tufts_01.tga
+
+newmtl vines
+illum 1
+map_Kd World\vines.tga
+
+newmtl drt2forest
+illum 1
+map_Kd World\drt2forest.tga
+
+newmtl red_wood
+illum 1
+map_Kd World\red_wood.tga
+

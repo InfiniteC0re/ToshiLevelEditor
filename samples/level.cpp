@@ -59,12 +59,20 @@ int main()
 	auto materials = tsfl->AllocateSECT<Materials::SMaterials>();
 	materials.data()->m_zero1 = 0;
 	materials.data()->m_zero2 = 0;
-	materials.data()->m_count = 1;
+	materials.data()->m_count = scene->mNumMaterials;
 	materials.data()->m_size = sizeof(Materials::Material) * materials.data()->m_count;
-	
-	auto material = tsfl->AllocateSECT<Materials::Material>();
-	strcpy(material.data()->m_matName, "grassmain");
-	strcpy(material.data()->m_matFile, "World\\grassmain.tga");
+
+	for (int i = 0; i < scene->mNumMaterials; i++)
+	{
+		auto aimaterial = scene->mMaterials[i];
+		auto material = tsfl->AllocateSECT<Materials::Material>();
+
+		aiString texPath;
+		aimaterial->GetTexture(aiTextureType_DIFFUSE, 0, &texPath);
+
+		strcpy(material.data()->m_matName, aimaterial->GetName().C_Str());
+		strcpy(material.data()->m_matFile, texPath.C_Str());
+	}
 
 	tsfl->AddSymbol(0, "Database", 30107, database.data());
 	tsfl->AddSymbol(0, "Header", 52909, header.data());
@@ -92,7 +100,6 @@ int main()
 	if (scene->HasMeshes())
 	{
 		aiMesh** meshes = scene->mMeshes;
-		std::cout << scene->mNumMeshes << std::endl;
 
 		for (int i = 0; i < scene->mNumMeshes; i++)
 		{
@@ -104,8 +111,9 @@ int main()
 
 			auto meshData = tsfl->AllocateSECT<Database::MeshData>(&mesh.data()->m_meshData);
 
-			auto matNameArray = tsfl->AllocateSECT<char>(&meshData.data()->m_matName, 12);
-			strcpy(matNameArray.data(), material.data()->m_matName);
+			const char* matName = scene->mMaterials[aimesh->mMaterialIndex]->GetName().C_Str();
+			auto matNameArray = tsfl->AllocateSECT<char>(&meshData.data()->m_matName, strlen(matName) + 1);
+			strcpy(matNameArray.data(), matName);
 			meshData.data()->m_vertexCount = aimesh->mNumVertices;
 			meshData.data()->m_vertexCount2 = aimesh->mNumVertices;
 			tsfl->AllocateSECT<Database::Vertex>(&meshData.data()->m_vertices, aimesh->mNumVertices);
@@ -118,7 +126,7 @@ int main()
 
 				// uv
 				Vector3 texCoords = aimesh->mTextureCoords[0][k];
-				meshData.data()->m_vertices[k].uv = { texCoords.x, texCoords.y };
+				meshData.data()->m_vertices[k].uv = { texCoords.x, -texCoords.y };
 
 				// normals
 				meshData.data()->m_vertices[k].normal = *aimesh->mNormals;

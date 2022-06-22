@@ -1,5 +1,16 @@
 # Blender MTL File: 'None'
-# Material Count: 26
+# Material Count: 25
+
+newmtl barnflrfade
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\World\\World\\barnflrfade.dds
 
 newmtl barnprops1
 Ns 0.000000
@@ -55,6 +66,17 @@ Ni 1.450000
 d 1.000000
 illum 1
 map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\black.png
+
+newmtl blackboard
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd D:\\Barnyard\\World\\Prop\\blackboard.dds
 
 newmtl blanket
 Ns 0.000000
@@ -188,7 +210,7 @@ d 1.000000
 illum 1
 map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\shedside.png
 
-newmtl shedsidecln
+newmtl silo
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -197,18 +219,7 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\shedsidecln.png
-
-newmtl shedsidevar
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 1
-map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\shedsidevar.png
+map_Kd D:\\Barnyard\\World\\World\\silo.dds
 
 newmtl silosim
 Ns 0.000000
@@ -220,17 +231,6 @@ Ni 1.450000
 d 1.000000
 illum 1
 map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\silosim.png
-
-newmtl simbarninterior
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 1
-map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\simbarninterior.png
 
 newmtl strawbed
 Ns 0.000000
@@ -244,17 +244,6 @@ illum 1
 map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\strawbed.png
 
 newmtl telegraph_pole
-Ns 0.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 1
-map_Kd D:\\Barnyard\\Barnyard World Project\\Edited Files\\Meshes\\World\\telegraph_pole2.png
-
-newmtl telegraph_pole2
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
