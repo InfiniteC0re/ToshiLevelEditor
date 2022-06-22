@@ -40,9 +40,11 @@ int main()
 	SECT* sect = tsfl->GetSECT();
 	
 	auto header = tsfl->AllocateSECT<Header::SHeader>();
+
+	const aiScene* scene = aiImportFile("./models/Barn_L0Mod0.obj", aiProcessPreset_TargetRealtime_MaxQuality);
 	
 	header.data()->m_lodDistance = 100.f;
-	header.data()->m_meshCount = 1;
+	header.data()->m_meshCount = scene->mNumMeshes;
 	header.data()->m_modelCount = 1;
 	header.data()->m_origin = { 0, 0, 0 };
 	header.data()->m_radius = 256;
@@ -74,63 +76,72 @@ int main()
 
 	auto pModels = tsfl->AllocateSECT<Database::Model*>(&infoArray.data()->m_models);
 	auto model = tsfl->AllocateSECT<Database::Model>(pModels);
-	model.data()->m_meshCount = 1;
-	tsfl->AllocateSECT<Database::ModelRenderInfo>(&model.data()->m_subInfo);
-	model.data()->m_subInfo->m_unk2 = 1; // count of meshes????
-
-	auto pMeshes = tsfl->AllocateSECT<Database::Mesh*>(&model.data()->m_meshes);
-	auto mesh = tsfl->AllocateSECT<Database::Mesh>(pMeshes);
-	mesh.data()->m_origin = { 0, 0, 0 };
-	mesh.data()->m_radius = 256;
-
-	auto meshData = tsfl->AllocateSECT<Database::MeshData>(&mesh.data()->m_meshData);
+	model.data()->m_meshCount = scene->mNumMeshes;
 	
-	const aiScene* scene = aiImportFile("./models/barn_L0Mod0.fbx", aiProcessPreset_TargetRealtime_MaxQuality);
+	// IMPORTANT: Render groups
+	tsfl->AllocateSECT<Database::MeshRenderGroup>(&model.data()->m_renderGroups);
+	auto renderGroupData = tsfl->AllocateSECT<Database::MeshRenderGroupData>();
+	
+	// Adding all the meshes in one group
+	renderGroupData.data()->m_meshCount = scene->mNumMeshes;
+	auto meshIndexes = tsfl->AllocateSECT<unsigned short>(scene->mNumMeshes);
+	for (int i = 0; i < scene->mNumMeshes; i++) meshIndexes.data()[i] = i;
+
+	auto pMeshes = tsfl->AllocateSECT<Database::Mesh*>(&model.data()->m_meshes, scene->mNumMeshes);
 
 	if (scene->HasMeshes())
 	{
-		// todo: import more than 1 mesh
-		assert(scene->mNumMeshes == 1 && "Not implemented yet");
 		aiMesh** meshes = scene->mMeshes;
+		std::cout << scene->mNumMeshes << std::endl;
 
-		aiMesh* aimesh = meshes[0];
-
-		auto matNameArray = tsfl->AllocateSECT<char>(&meshData.data()->m_matName, 12);
-		strcpy(matNameArray.data(), material.data()->m_matName);
-		meshData.data()->m_vertexCount = aimesh->mNumVertices;
-		meshData.data()->m_vertexCount2 = aimesh->mNumVertices;
-		tsfl->AllocateSECT<Database::Vertex>(&meshData.data()->m_vertices, aimesh->mNumVertices);
-
-		// vertices
-		for (int k = 0; k < aimesh->mNumVertices; k++)
+		for (int i = 0; i < scene->mNumMeshes; i++)
 		{
-			// pos
-			meshData.data()->m_vertices[k].pos = aimesh->mVertices[k];
+			aiMesh* aimesh = meshes[i];
 
-			// uv
-			Vector3 texCoords = aimesh->mTextureCoords[0][k];
-			meshData.data()->m_vertices[k].uv = { texCoords.x, texCoords.y };
+			auto mesh = tsfl->AllocateSECT<Database::Mesh>(&pMeshes.data()[i]);
+			mesh.data()->m_origin = { 0, 0, 0 };
+			mesh.data()->m_radius = 256;
 
-			// normals
-			meshData.data()->m_vertices[k].normal = *aimesh->mNormals;
+			auto meshData = tsfl->AllocateSECT<Database::MeshData>(&mesh.data()->m_meshData);
 
-			// shadows
-			meshData.data()->m_vertices[k].tint = { 1, 1, 1 };
+			auto matNameArray = tsfl->AllocateSECT<char>(&meshData.data()->m_matName, 12);
+			strcpy(matNameArray.data(), material.data()->m_matName);
+			meshData.data()->m_vertexCount = aimesh->mNumVertices;
+			meshData.data()->m_vertexCount2 = aimesh->mNumVertices;
+			tsfl->AllocateSECT<Database::Vertex>(&meshData.data()->m_vertices, aimesh->mNumVertices);
+
+			// vertices
+			for (int k = 0; k < aimesh->mNumVertices; k++)
+			{
+				// pos
+				meshData.data()->m_vertices[k].pos = aimesh->mVertices[k];
+
+				// uv
+				Vector3 texCoords = aimesh->mTextureCoords[0][k];
+				meshData.data()->m_vertices[k].uv = { texCoords.x, texCoords.y };
+
+				// normals
+				meshData.data()->m_vertices[k].normal = *aimesh->mNormals;
+
+				// shadows
+				meshData.data()->m_vertices[k].tint = { 1, 1, 1 };
+			}
+
+			std::vector<unsigned short> indices;
+			for (int k = 0; k < aimesh->mNumFaces; k++)
+			{
+				indices.push_back(aimesh->mFaces[k].mIndices[0]);
+				indices.push_back(aimesh->mFaces[k].mIndices[1]);
+				indices.push_back(aimesh->mFaces[k].mIndices[2]);
+			}
+
+			GenerateStrips(indices, tsfl, meshData);
 		}
 
-		std::vector<unsigned short> indices;
-		for (int k = 0; k < aimesh->mNumFaces; k++)
-		{
-			indices.push_back(aimesh->mFaces[k].mIndices[0]);
-			indices.push_back(aimesh->mFaces[k].mIndices[1]);
-			indices.push_back(aimesh->mFaces[k].mIndices[2]);
-		}
-
-		GenerateStrips(indices, tsfl, meshData);
 		std::cout << std::endl << "Done!" << std::endl;
 	}
 
-	tsfl->AllocateSECT<char>(2);
 	auto db = database.data();
-	file.Save("./Barn_L0Mod0.trb");
+
+	file.Save("D:\\Barnyard\\Game\\Data\\Terrain\\EnvMain\\Barn_L0Mod0.trb");
 }

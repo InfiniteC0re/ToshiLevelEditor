@@ -33,13 +33,20 @@ namespace Database
 		MeshData* m_meshData;
 	};
 
-	struct ModelRenderInfo
+	/* the reason why I can't implement more than 1 mesh loading */
+	struct MeshRenderGroup
 	{
 		Vector3 m_origin;
 		float m_radius;
-		size_t m_unk1;
-		size_t m_unk2;
-		size_t m_unk3;
+		/* if m_nextGroup is 0 then RIGHT after this structure there's a MeshRenderGroupData structure */
+		MeshRenderGroup* m_nextGroup;
+	};
+
+	struct MeshRenderGroupData
+	{
+		size_t m_meshCount;
+	public:
+		unsigned short get_mesh_index(int index);
 	};
 
 	struct Model
@@ -47,7 +54,7 @@ namespace Database
 		char m_customData[0x84];
 		size_t m_meshCount;
 		Mesh** m_meshes;
-		ModelRenderInfo* m_subInfo;
+		MeshRenderGroup* m_renderGroups;
 	};
 	
 	struct InfoArray

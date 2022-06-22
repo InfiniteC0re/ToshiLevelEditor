@@ -19,6 +19,11 @@ TRBTag::TRBTag(FILE* pFile)
 
 void TRBTag::Write(FILE* pFile)
 {
+	// aligning the Tag's start to 4 bytes
+	long pos = ftell(pFile);
+	int toAdd = 4 - pos % 4;
+	if (toAdd != 4) fseek(pFile, toAdd, SEEK_CUR);
+
 	// writing tag name
 	fwrite(name, 4, 1, pFile);
 	// writing tag size

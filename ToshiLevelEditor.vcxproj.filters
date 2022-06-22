@@ -42,6 +42,9 @@
     <ClCompile Include="Trb\Symbols\Materials.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Trb\Symbols\Database.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
     <ClCompile Include="samples\level.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>

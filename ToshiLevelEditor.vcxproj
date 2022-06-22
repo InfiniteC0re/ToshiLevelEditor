@@ -155,6 +155,7 @@
     <ClCompile Include="Trb\RELC.cpp" />
     <ClCompile Include="Trb\SECT.cpp" />
     <ClCompile Include="trb\HDRX.cpp" />
+    <ClCompile Include="Trb\Symbols\Database.cpp" />
     <ClCompile Include="Trb\Symbols\Materials.cpp" />
     <ClCompile Include="trb\TRBFile.cpp" />
     <ClCompile Include="Trb\Tag.cpp" />
