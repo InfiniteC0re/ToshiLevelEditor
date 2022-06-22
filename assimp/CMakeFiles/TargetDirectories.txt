@@ -10,6 +10,3 @@ C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/CMakeFiles/assim
 C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/CMakeFiles/INSTALL.dir
 C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/tools/assimp_cmd/CMakeFiles/assimp_cmd.dir
 C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/tools/assimp_cmd/CMakeFiles/INSTALL.dir
-C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/test/CMakeFiles/unit.dir
-C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/test/CMakeFiles/INSTALL.dir
-C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/test/headercheck/CMakeFiles/INSTALL.dir

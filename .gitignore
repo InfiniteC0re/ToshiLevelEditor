@@ -1,3 +1,6 @@
+.CMakeFiles/
+.vs/
+
 # Prerequisites
 *.d
 
@@ -7,7 +10,7 @@
 *.o
 Debug/
 Release/
-.vs/
+
 
 # Precompiled Headers
 *.gch

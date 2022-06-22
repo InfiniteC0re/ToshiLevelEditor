@@ -181,10 +181,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{AFF1E105-A5D9-3858-8168-993403115D7F}</Project>
       <Name>assimp_cmd</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\test\unit.vcxproj">
-      <Project>{1729A30B-19E5-3F6B-8465-6CF63C1B2280}</Project>
-      <Name>unit</Name>
-    </ProjectReference>
     <ProjectReference Include="C:\Users\InfiniteC0re\source\repos\ToshiLevelEditor\assimp\contrib\zlib\zlibstatic.vcxproj">
       <Project>{06A59431-32D8-340C-9BFC-F94381CE3AC1}</Project>
       <Name>zlibstatic</Name>

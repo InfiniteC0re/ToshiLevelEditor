@@ -80,7 +80,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/contrib/zlib/cmake_install.cmake")
   include("C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/code/cmake_install.cmake")
   include("C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/tools/assimp_cmd/cmake_install.cmake")
-  include("C:/Users/InfiniteC0re/source/repos/ToshiLevelEditor/assimp/test/cmake_install.cmake")
 
 endif()
 
