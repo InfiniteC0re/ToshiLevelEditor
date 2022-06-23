@@ -38,3 +38,19 @@ std::string read_str_offset(FILE* pFile, long offset, int* length)
 
 	return str;
 }
+
+void append_bytes(std::vector<unsigned char>& dst_data, std::vector<unsigned char> scr_data, int begin, int count)
+{
+	for (size_t i = 0; i < count; i++)
+	{
+		dst_data.push_back(scr_data[begin + i]);
+	}
+}
+
+void xor_data(std::vector<unsigned char>& data, int xorValue)
+{
+	for (size_t i = 0; i < data.size(); i++)
+	{
+		data[i] ^= xorValue;
+	}
+}
