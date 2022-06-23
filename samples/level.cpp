@@ -74,10 +74,10 @@ int main()
 		strcpy(material.data()->m_matFile, texPath.C_Str());
 	}
 
-	tsfl->AddSymbol(0, "Database", 30107, database.data());
-	tsfl->AddSymbol(0, "Header", 52909, header.data());
-	tsfl->AddSymbol(0, "Materials", 24588, materials.data());
-	tsfl->AddSymbol(0, "Collision", 26386, tsfl->AllocateSECT<int>().data());
+	tsfl->AddSymbol(0, "Database", database.data());
+	tsfl->AddSymbol(0, "Header", header.data());
+	tsfl->AddSymbol(0, "Materials", materials.data());
+	tsfl->AddSymbol(0, "Collision", tsfl->AllocateSECT<int>().data());
 	
 	auto infoArray = tsfl->AllocateSECT<Database::InfoArray>(pInfoArray);
 	infoArray.data()->m_modelCount = 1;

@@ -65,6 +65,17 @@ const std::string SYMB::GetEntryName(size_t index) const
 	return "";
 }
 
+const int SYMB::CreateNameIDHash(std::string name) const
+{
+	int hash = 0;
+	for (size_t i = 0; i < name.size(); i++)
+	{
+		hash = ((hash << 5) & 0x1FFFE0) - hash + name[i];
+		hash &= 0xFFFF;
+	}
+	return hash;
+}
+
 void* SYMB::Find(std::string name) const
 {
 	int count = GetCount();
@@ -108,11 +119,11 @@ void SYMB::UnlinkSECT(SECT* pSect)
 	isLinked = false;
 }
 
-void SYMB::Add(unsigned short hdrx, std::string name, short nameID, void* ptr)
+void SYMB::Add(unsigned short hdrx, std::string name, void* ptr)
 {
 	m_entriesNames.push_back(name);
 
-	SYMBEntry symb{ hdrx, 0, nameID, (char*)ptr };
+	SYMBEntry symb{ hdrx, 0, CreateNameIDHash(name), (char*)ptr};
 	m_entries.push_back(symb);
 }
 
