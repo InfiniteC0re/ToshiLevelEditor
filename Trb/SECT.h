@@ -5,10 +5,16 @@
 class RELC;
 class HDRX;
 
+enum class BTECVersion : unsigned int
+{
+	NOXOR = 0x10002,
+	XOR = 0x10003
+};
+
 struct BTEC
 {
 	char magic[4];
-	unsigned int version;
+	BTECVersion version;
 	int csize;
 	int usize;
 };

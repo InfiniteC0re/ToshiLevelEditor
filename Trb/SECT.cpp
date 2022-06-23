@@ -27,17 +27,17 @@ SECT::SECT(FILE* pFile, HDRX* hdrx) : TRBTag(pFile)
 			BTEC btec;
 			ReadFileData(&btec, sizeof(BTEC), 1, pFile);
 
-			assert((btec.version == 0x10002 || btec.version == 0x10003) && "Unknown BTEC version");
+			assert((btec.version == BTECVersion::NOXOR || btec.version == BTECVersion::XOR) && "Unknown BTEC version");
 
 			std::vector<unsigned char> decompressed;
 			std::vector<unsigned char> compressed(btec.csize);
 
-			if (btec.version == 0x10002)
+			if (btec.version == BTECVersion::NOXOR)
 			{
 				ReadFileData(compressed.data(), btec.csize, 1, pFile);
 				Decompress(&btec, compressed, decompressed);
 			}
-			else if (btec.version == 0x10003)
+			else if (btec.version == BTECVersion::XOR)
 			{
 				int xorValue;
 				
