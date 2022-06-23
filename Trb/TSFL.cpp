@@ -12,6 +12,7 @@ TSFL::TSFL() : TRBTag("TSFL", 0)
 	m_SECT = new SECT();
 	m_RELC = new RELC();
 	m_SYMB = new SYMB();
+	m_activeHdrx = 0;
 }
 
 TSFL::TSFL(FILE* pFile) : TRBTag(pFile)
@@ -26,8 +27,7 @@ TSFL::TSFL(FILE* pFile) : TRBTag(pFile)
 	m_SYMB = new SYMB(pFile);
 
 	// updating pointers
-	m_SECT->LinkRELC(m_RELC);
-	m_SYMB->LinkSECT(m_SECT);
+	Link();
 }
 
 TSFL::~TSFL()
@@ -63,14 +63,14 @@ void TSFL::Link()
 {
 	// updating all the pointers to be relative to the program memory
 	if (!m_SECT->IsLinked()) m_SECT->LinkRELC(m_RELC);
-	if (!m_SYMB->IsLinked()) m_SYMB->LinkSECT(m_SECT);
+	//if (!m_SYMB->IsLinked()) m_SYMB->LinkSECT(m_SECT);
 }
 
 void TSFL::Unlink()
 {
 	// updating all the pointers to be relative to the file memory
 	if (m_SECT->IsLinked()) m_SECT->UnlinkRELC(m_RELC);
-	if (m_SYMB->IsLinked()) m_SYMB->UnlinkSECT(m_SECT);
+	//if (m_SYMB->IsLinked()) m_SYMB->UnlinkSECT(m_SECT);
 }
 
 void* TSFL::DumpSECT(const char* filepath)
@@ -80,8 +80,10 @@ void* TSFL::DumpSECT(const char* filepath)
 
 	if (err == 0)
 	{
+		SECTFile* sectFile = m_SECT->GetFile(m_activeHdrx);
+
 		Unlink();
-		fwrite(m_SECT->GetBuffer(), m_SECT->GetBufferSize(), 1, file);
+		fwrite(sectFile->GetBuffer(), sectFile->GetBufferSize(), 1, file);
 		fclose(file);
 		Link();
 
@@ -97,18 +99,14 @@ void* TSFL::DumpSECT(const char* filepath)
 
 void TSFL::AddSymbol(unsigned short hdrx, std::string name, void* ptr)
 {
-	// unlinking all symbols before adding a new one
-	Unlink();
+	SECTFile* sectFile = m_SECT->GetFile(hdrx);
 
 	assert(ptr != nullptr && "The pointer can't be null");
-	assert(m_SECT->IsPtrInBounds(ptr) && "The pointer isn't in bounds of SECT");
+	assert(sectFile->IsPtrInBounds(ptr) && "The pointer isn't in bounds of SECT");
 
 	// getting a file relative pointer
-	size_t outUnlinked = (size_t)ptr - (size_t)m_SECT->GetBuffer();
+	size_t outUnlinked = (size_t)ptr - (size_t)sectFile->GetBuffer();
 	m_SYMB->Add(hdrx, name, (void*)outUnlinked);
-	
-	// linking them back
-	Link();
 }
 
 void TSFL::Write(FILE* pFile)
@@ -117,7 +115,7 @@ void TSFL::Write(FILE* pFile)
 	TRBTag::Write(pFile);
 	fwrite(m_trbf, 4, 1, pFile);
 
-	// other tags
+	// writing other tags
 	m_HDRX->Write(pFile);
 	m_SECT->Write(pFile);
 	m_RELC->Write(pFile);
@@ -126,6 +124,9 @@ void TSFL::Write(FILE* pFile)
 
 void TSFL::Calculate(TSFL* tsfl)
 {
+	// aligning SECT files
+	m_SECT->AlignData();
+
 	m_HDRX->Calculate(this);
 	m_SECT->Calculate(this);
 	m_RELC->Calculate(this);

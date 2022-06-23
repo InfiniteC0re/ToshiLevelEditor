@@ -40,13 +40,13 @@ public:
 	const unsigned short CreateNameIDHash(std::string name) const;
 
 	/* Find Symbol in the list */
-	void* Find(std::string name) const;
+	const SYMBEntry* Find(std::string name) const;
 	
-	/* Update pointers to be relative to the program memory */
-	void LinkSECT(SECT* pSect);
+	///* Update pointers to be relative to the program memory */
+	//void LinkSECT(SECT* pSect);
 
-	/* Update pointers to be relative to the file memory */
-	void UnlinkSECT(SECT* pSect);
+	///* Update pointers to be relative to the file memory */
+	//void UnlinkSECT(SECT* pSect);
 
 	/* Create new symbol */
 	void Add(unsigned short hdrx, std::string name, void* ptr);

@@ -76,48 +76,66 @@ const unsigned short SYMB::CreateNameIDHash(std::string name) const
 	return hash;
 }
 
-void* SYMB::Find(std::string name) const
+const SYMBEntry* SYMB::Find(std::string name) const
 {
 	size_t count = GetCount();
 	for (size_t i = 0; i < count; i++)
 	{
-		if (m_entriesNames[i] == name) return m_entries[i].dataOffset;
+		if (m_entriesNames[i] == name) return &m_entries[i];
 	}
 
 	return nullptr;
 }
 
-void SYMB::LinkSECT(SECT* pSect)
-{
-	// todo: support files with few HDRXs
-	assert(!isLinked && "SYMB can't be linked twice");
+//void SYMB::LinkSECT(SECT* pSect)
+//{
+//	assert(!isLinked && "SYMB can't be linked twice");
+//
+//	unsigned short fileCount = pSect->GetFileCount();
+//
+//	for (unsigned short i = 0; i < fileCount; i++)
+//	{
+//		SECTFile* file = pSect->GetFile(i);
+//		unsigned short hdrx = file->m_hdrx;
+//		size_t count = GetCount();
+//
+//		for (size_t k = 0; k < count; k++)
+//		{
+//			if (m_entries[k].hdrx == hdrx)
+//			{
+//				size_t dataStart = (size_t)file->GetBuffer();
+//				m_entries[k].dataOffset += dataStart;
+//			}
+//		}
+//	}
+//
+//	isLinked = true;
+//}
 
-	unsigned int dataStart = (unsigned int)pSect->GetBuffer();
-
-	size_t count = GetCount();
-	for (size_t i = 0; i < count; i++)
-	{
-		m_entries[i].dataOffset += dataStart;
-	}
-
-	isLinked = true;
-}
-
-void SYMB::UnlinkSECT(SECT* pSect)
-{
-	// todo: support files with few HDRXs
-	assert(isLinked && "SYMB can't be unlinked twice");
-
-	unsigned int dataStart = (unsigned int)pSect->GetBuffer();
-
-	size_t count = GetCount();
-	for (size_t i = 0; i < count; i++)
-	{
-		m_entries[i].dataOffset -= dataStart;
-	}
-
-	isLinked = false;
-}
+//void SYMB::UnlinkSECT(SECT* pSect)
+//{
+//	assert(isLinked && "SYMB can't be unlinked twice");
+//
+//	unsigned short fileCount = pSect->GetFileCount();
+//
+//	for (unsigned short i = 0; i < fileCount; i++)
+//	{
+//		SECTFile* file = pSect->GetFile(i);
+//		unsigned short hdrx = file->m_hdrx;
+//		size_t count = GetCount();
+//
+//		for (size_t k = 0; k < count; k++)
+//		{
+//			if (m_entries[k].hdrx == hdrx)
+//			{
+//				size_t dataStart = (size_t)file->GetBuffer();
+//				m_entries[k].dataOffset -= dataStart;
+//			}
+//		}
+//	}
+//
+//	isLinked = false;
+//}
 
 void SYMB::Add(unsigned short hdrx, std::string name, void* ptr)
 {

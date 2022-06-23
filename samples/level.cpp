@@ -149,7 +149,5 @@ int main()
 		std::cout << std::endl << "Done!" << std::endl;
 	}
 
-	auto db = database.data();
-
-	file.Save("D:\\Barnyard\\Game\\Data\\Terrain\\EnvMain\\Barn_L0Mod0.trb");
+	file.Save("Barn_L0Mod0.trb");
 }

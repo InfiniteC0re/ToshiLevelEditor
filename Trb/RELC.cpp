@@ -1,6 +1,9 @@
 #include "RELC.h"
-#include <cassert>
+
 #include "Utils.h"
+
+#include <cassert>
+#include <iostream>
 
 RELC::RELC() : TRBTag("RELC", 0)
 {

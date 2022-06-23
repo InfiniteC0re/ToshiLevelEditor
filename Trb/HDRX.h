@@ -21,6 +21,8 @@ public:
 
 	virtual void Calculate(TSFL* tsfl);
 
+	HDRXFile* GetFile(int index);
+
 	size_t GetFileCount();
 
 private:

@@ -40,9 +40,9 @@ int main()
 
 	auto database = tsfl->FindSymbol<Database::SDatabase>("Database");
 
-	if (database)
+	if (database.valid())
 	{
-		GetMeshRenderGroupInfo(database->m_infoArray[0]->m_models[0]->m_renderGroups);
+		GetMeshRenderGroupInfo(database.data()->m_infoArray[0]->m_models[0]->m_renderGroups);
 	}
 
 	file.Save("D:\\Barnyard\\Game\\Data\\Terrain\\EnvMain\\Barn_L0Mod0.trb");

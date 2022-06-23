@@ -36,10 +36,23 @@ void HDRX::Calculate(TSFL* tsfl)
 {
 	// making our own HDRX
 	m_files.clear();
-	m_files.push_back({ 0, 0, tsfl->GetSECT()->GetBufferSize(), 0, 0 });
+
+	SECT* sect = tsfl->GetSECT();
+	unsigned short count = sect->GetFileCount();
+
+	for (unsigned short i = 0; i < count; i++)
+	{
+		SECTFile* file = sect->GetFile(i);
+		m_files.push_back({ 0, 0, file->GetBufferSize(), 0, 0 });
+	}
 
 	m_fileCount = m_files.size();
 	size = sizeof(m_flag1) + sizeof(m_flag2) + sizeof(m_fileCount) + sizeof(HDRXFile) * m_fileCount;
+}
+
+HDRXFile* HDRX::GetFile(int index)
+{
+	return &m_files[index];
 }
 
 size_t HDRX::GetFileCount()

@@ -8,7 +8,7 @@
 
 int main()
 {
-	TRBFile file("sample_files/BTEC/BKG_LEGAL_NTSC.TRB");
+	TRBFile file("sample_files/Barn_L0Mod0.TRB");
 	
 	TSFL* tsfl = file.GetTSFL();
 
@@ -18,35 +18,37 @@ int main()
 
 	std::cout << "Successfully readed the file" << std::endl;
 
-	Materials::SMaterials* materials = tsfl->FindSymbol<Materials::SMaterials>("Materials");
-	Collision::SCollision* coll = tsfl->FindSymbol<Collision::SCollision>("Collision");
-	SkeletonHeader::SSkeletonHeader* skeletonHeader = tsfl->FindSymbol<SkeletonHeader::SSkeletonHeader>("SkeletonHeader");
-	Skeleton::SSkeleton* skeleton = tsfl->FindSymbol<Skeleton::SSkeleton>("Skeleton");
+	auto materials = tsfl->FindSymbol<Materials::SMaterials>("Materials");
+	auto coll = tsfl->FindSymbol<Collision::SCollision>("Collision");
+	auto skeletonHeader = tsfl->FindSymbol<SkeletonHeader::SSkeletonHeader>("SkeletonHeader");
+	auto skeleton = tsfl->FindSymbol<Skeleton::SSkeleton>("Skeleton");
 	
-	if (materials)
+	if (materials.valid())
 	{
 		std::cout << std::endl << "----Materials----" << std::endl;
-		std::cout << "Found " << materials->m_count << " materials" << std::endl;
+		std::cout << "Found " << materials.data()->m_count << " materials" << std::endl;
 	}
 
-	if (skeletonHeader)
+	if (skeletonHeader.valid())
 	{
 		std::cout << std::endl << "----SkeletonHeader----" << std::endl;
-		std::cout << "TKL name: " << skeletonHeader->m_tklName << std::endl;
+		std::cout << "TKL name: " << skeletonHeader.data()->m_tklName << std::endl;
 	}
 
-	if (skeleton)
+	if (skeleton.valid())
 	{
 		std::cout << std::endl << "----Skeleton----" << std::endl;
-		std::cout << "Bone Count: " << skeleton->m_nodeCount << std::endl;
+		std::cout << "Bone Count: " << skeleton.data()->m_nodeCount << std::endl;
 		std::cout << "Bones: ";
-		for (int i = 0; i < skeleton->m_nodeCount; i++)
-			std::cout << skeleton->m_nodes[i].m_name << "; ";
+		for (int i = 0; i < skeleton.data()->m_nodeCount; i++)
+			std::cout << skeleton.data()->m_nodes[i].m_name << "; ";
 
-		std::cout << std::endl << "Animation Count: " << skeleton->m_animCount << std::endl;
+		std::cout << std::endl << "Animation Count: " << skeleton.data()->m_animCount << std::endl;
 		std::cout << "Animations: ";
-		for (int i = 0; i < skeleton->m_animCount; i++)
-			std::cout << skeleton->m_animations[i].m_name << "; ";
+		for (int i = 0; i < skeleton.data()->m_animCount; i++)
+			std::cout << skeleton.data()->m_animations[i].m_name << "; ";
 		std::cout << std::endl;
 	}
+
+	file.Save("./test.trb");
 }

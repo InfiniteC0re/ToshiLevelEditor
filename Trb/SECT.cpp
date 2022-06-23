@@ -8,22 +8,17 @@
 SECT::SECT() : TRBTag("SECT", 0)
 {
 	size = 0;
-	m_buffer = nullptr;
-	m_bufferSize = 0;
-	isLinked = false;
+	CreateFile();
 }
 
 SECT::SECT(FILE* pFile, HDRX* hdrx) : TRBTag(pFile)
 {
-	isLinked = false;
-	m_bufferSize = 0;
-
 	if (*(int*)name == MAKEFOURCC('S', 'E', 'C', 'C'))
 	{
-		size_t offset = 0;
-
 		for (int i = 0; i < hdrx->GetFileCount(); i++)
 		{
+			SECTFile* file = CreateFile();
+
 			BTEC btec;
 			ReadFileData(&btec, sizeof(BTEC), 1, pFile);
 
@@ -47,24 +42,28 @@ SECT::SECT(FILE* pFile, HDRX* hdrx) : TRBTag(pFile)
 			}
 
 			// copying decompressed data to the SECT buffer
-			AllocMem(btec.usize);
-			memcpy(GetBuffer() + offset, decompressed.data(), btec.usize);
-
-			offset += btec.usize;
+			file->AllocMem(btec.usize);
+			memcpy(file->GetBuffer(), decompressed.data(), btec.usize);
 		}
 
 		ValidateAlignment(pFile);
 	}
 	else
 	{
-		AllocMem(size);
-		ReadFileData(GetBuffer(), 1, size, pFile);
+		for (unsigned short i = 0; i < hdrx->GetFileCount(); i++)
+		{
+			HDRXFile* hdrxFile = hdrx->GetFile(i);
+			SECTFile* file = CreateFile();
+
+			file->AllocMem(hdrxFile->m_size);
+			ReadFileData(file->GetBuffer(), 1, hdrxFile->m_size, pFile);
+		}
 	}
 }
 
 SECT::~SECT()
 {
-	delete[] m_buffer;
+	m_files.clear();
 }
 
 void SECT::Decompress(BTEC* btec, std::vector<unsigned char>& compressedData, std::vector<unsigned char>& decompressedData)
@@ -151,66 +150,137 @@ int SECT::Get_Size_Info(int file_pos, int& read_dst, int& size, int& offset, std
 	return read_count;
 }
 
-char* SECT::GetBuffer()
-{
-	return m_buffer;
-}
-
-size_t SECT::GetBufferSize()
-{
-	return m_bufferSize;
-}
-
 bool SECT::IsLinked() const
 {
+	bool isLinked = true;
+
+	for (SECTFile* file : m_files)
+	{
+		isLinked = isLinked && file->IsLinked();
+	}
+
 	return isLinked;
 }
 
 void SECT::LinkRELC(RELC* pRelc)
 {
-	// todo: support files with few HDRXs
-	assert(!isLinked && "SECT can't be linked twice");
+	assert(!IsLinked() && "SECT can't be linked twice");
 
-	char* buffer = GetBuffer();
-	size_t count = pRelc->GetCount();
+	size_t fileCount = GetFileCount();
+	size_t relcCount = pRelc->GetCount();
 
-	for (size_t i = 0; i < count; i++)
+	for (size_t i = 0; i < fileCount; i++)
 	{
-		RELCEntry entry = pRelc->GetEntry(i);
-		if (entry.hdrx1 != 0 || entry.hdrx2 != 0) break;
+		SECTFile* file = GetFile(i);
 
-		// updating file relative pointers to be memory relative pointers
-		assert(IsPtrInBounds(buffer + entry.offset) && "Invalid RELC pointer - not in SECT bounds");
-		*(int*)(buffer + entry.offset) += (unsigned int)buffer;
+		for (size_t k = 0; k < relcCount; k++)
+		{
+			RELCEntry entry = pRelc->GetEntry(k);
+
+			if (file->m_hdrx == entry.hdrx1)
+			{
+				file->LinkRELCEntry(entry);
+			}
+		}
+
+		file->m_isLinked = true;
 	}
-
-	isLinked = true;
 }
 
 void SECT::UnlinkRELC(RELC* pRelc)
 {
-	// todo: support files with few HDRXs
-	assert(isLinked && "SECT isn't linked");
+	assert(IsLinked() && "SECT isn't linked");
 
-	char* buffer = GetBuffer();
-	size_t count = pRelc->GetCount();
+	size_t fileCount = GetFileCount();
+	size_t relcCount = pRelc->GetCount();
 
-	for (size_t i = 0; i < count; i++)
+	for (size_t i = 0; i < fileCount; i++)
 	{
-		RELCEntry entry = pRelc->GetEntry(i);
-		if (entry.hdrx1 != 0 || entry.hdrx2 != 0) break;
+		SECTFile* file = GetFile(i);
 
-		// updating memory relative pointers to be file relative pointers
-		assert(entry.offset < m_bufferSize && "the pointer is not file relative");
-		*(int*)(buffer + entry.offset) -= (unsigned int)buffer;
+		for (size_t k = 0; k < relcCount; k++)
+		{
+			RELCEntry entry = pRelc->GetEntry(k);
+
+			if (file->m_hdrx == entry.hdrx1)
+			{
+				file->UnlinkRELCEntry(entry);
+			}
+		}
+
+		file->m_isLinked = false;
 	}
-
-	isLinked = false;
 }
 
-void* SECT::AllocMem(size_t size)
+SECTFile* SECT::CreateFile()
 {
-	assert(!isLinked && "Unlink before allocating memory");
+	SECTFile* file = new SECTFile(m_files.size());
+	m_files.push_back(file);
+
+	return file;
+}
+
+SECTFile* SECT::GetFile(unsigned short index)
+{
+	return m_files[index];
+}
+
+unsigned short SECT::GetFileCount()
+{
+	return m_files.size();
+}
+
+void SECT::Write(FILE* pFile)
+{
+	assert(!IsLinked() && "Unlink SECT before generating TRB");
+
+	TRBTag::Write(pFile);
+
+	for (SECTFile* file : m_files)
+	{
+		fwrite(file->GetBuffer(), file->GetBufferSize(), 1, pFile);
+	}
+}
+
+void SECT::AlignData()
+{
+	for (SECTFile* file : m_files)
+	{
+		// aligning data to 4 bytes
+		size_t alignedSize = file->GetBufferSize();
+		size_t toAdd = 4 - (alignedSize % 4);
+		alignedSize += toAdd == 4 ? 0 : toAdd;
+		file->AllocMem(toAdd);
+	}
+}
+
+void SECT::Calculate(TSFL* tsfl)
+{
+	assert(!IsLinked() && "Unlink SECT before calculating it");
+
+	size = 0;
+	for (SECTFile* file : m_files)
+	{
+		size += file->GetBufferSize();
+	}
+}
+
+SECTFile::SECTFile(unsigned short hdrx)
+{
+	m_buffer = 0;
+	m_bufferSize = 0;
+	m_hdrx = hdrx;
+	m_isLinked = false;
+}
+
+SECTFile::~SECTFile()
+{
+	if (m_buffer) delete[] m_buffer;
+}
+
+void* SECTFile::AllocMem(size_t size)
+{
+	assert(!m_isLinked && "Unlink before allocating memory");
 	size_t oldSize = m_bufferSize;
 	size_t newSize = m_bufferSize + size;
 	assert(newSize > oldSize && "Invalid allocation size");
@@ -233,21 +303,40 @@ void* SECT::AllocMem(size_t size)
 	return m_buffer + oldSize;
 }
 
-bool SECT::IsPtrInBounds(void* ptr)
+bool SECTFile::IsLinked() const
+{
+	return m_isLinked;
+}
+
+char* SECTFile::GetBuffer()
+{
+	return m_buffer;
+}
+
+size_t SECTFile::GetBufferSize()
+{
+	return m_bufferSize;
+}
+
+bool SECTFile::IsPtrInBounds(void* ptr)
 {
 	return (ptr >= m_buffer && ptr < m_buffer + m_bufferSize);
 }
 
-void SECT::Write(FILE* pFile)
+void SECTFile::LinkRELCEntry(RELCEntry entry)
 {
-	assert(!isLinked && "Unlink SECT before generating TRB");
+	char* buffer = GetBuffer();
 
-	TRBTag::Write(pFile);
-	fwrite(GetBuffer(), GetBufferSize(), 1, pFile);
+	// updating file relative pointer to be memory relative
+	assert(IsPtrInBounds(buffer + entry.offset) && "Invalid RELC pointer - not in SECTFile bounds");
+	*(int*)(buffer + entry.offset) += (unsigned int)buffer;
 }
 
-void SECT::Calculate(TSFL* tsfl)
+void SECTFile::UnlinkRELCEntry(RELCEntry entry)
 {
-	assert(!isLinked && "Unlink SECT before calculating it");
-	size = GetBufferSize();
+	char* buffer = GetBuffer();
+
+	// updating memory relative pointer to be file relative
+	assert(entry.offset < m_bufferSize && "the pointer is not file relative");
+	*(int*)(buffer + entry.offset) -= (unsigned int)buffer;
 }

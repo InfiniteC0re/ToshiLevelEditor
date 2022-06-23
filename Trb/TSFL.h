@@ -48,7 +48,7 @@ public:
 
 	/* Find SYMB Data pointer by name. Returns 0 if not found */
 	template<typename T>
-	inline T* FindSymbol(std::string name) const;
+	inline SECTPtr<T> FindSymbol(std::string name);
 
 	/* Add symbol */
 	void AddSymbol(unsigned short hdrx, std::string name, void* ptr);
@@ -61,6 +61,7 @@ public:
 
 private:
 	char m_trbf[4];
+	unsigned short m_activeHdrx;
 
 	HDRX* m_HDRX;
 	SECT* m_SECT;
@@ -69,9 +70,18 @@ private:
 };
 
 template<typename T>
-inline T* TSFL::FindSymbol(std::string name) const
+inline SECTPtr<T> TSFL::FindSymbol(std::string name)
 {
-	return (T*)m_SYMB->Find(name);
+	const SYMBEntry* symb = m_SYMB->Find(name);
+	
+	if (symb)
+	{
+		SECTPtr<T> ptr(this, symb->hdrx, (size_t)symb->dataOffset);
+		return ptr;
+	}
+
+	SECTPtr<T> nullPtr(nullptr, 0, 0);
+	return nullPtr;
 }
 
 template<typename T>
@@ -80,11 +90,14 @@ SECTPtr<T> TSFL::AllocateSECT(int count)
 	// unlink everything before moving the data
 	Unlink();
 
+	// get currently selected SECT file
+	SECTFile* file = m_SECT->GetFile(m_activeHdrx);
+	
 	size_t size = sizeof(T) * count;
-	T* data = (T*)m_SECT->AllocMem(size);
+	T* data = (T*)file->AllocMem(size);
 
-	size_t unlinkedOffset = (size_t)data - (size_t)m_SECT->GetBuffer();
-	SECTPtr<T> ptr(this, unlinkedOffset);
+	size_t unlinkedOffset = (size_t)data - (size_t)file->GetBuffer();
+	SECTPtr<T> ptr(this, m_activeHdrx, unlinkedOffset);
 
 	// link everything back
 	Link();
@@ -95,7 +108,11 @@ SECTPtr<T> TSFL::AllocateSECT(int count)
 template<typename T>
 SECTPtr<T> TSFL::AllocateSECT(SECTPtr<T*> out, int count)
 {
-	assert(m_SECT->IsPtrInBounds(out.data()) && "The pointer isn't in bounds of SECT");
+	// get currently selected SECT file
+	SECTFile* file = m_SECT->GetFile(m_activeHdrx);
+
+	assert(file->IsPtrInBounds(out.data()) && "The pointer isn't in bounds of SECT");
+	assert(out.hdrx() == m_activeHdrx && "Selected HDRX is wrong");
 	
 	// allocating the memory
 	SECTPtr<T> pPtr = AllocateSECT<T>(count);
@@ -104,8 +121,7 @@ SECTPtr<T> TSFL::AllocateSECT(SECTPtr<T*> out, int count)
 	*out.data() = pPtr.data();
 
 	// saving the file relative pointer in RELC
-	// todo: hdrx
-	m_RELC->Add(0, 0, (void*)out.offset());
+	m_RELC->Add(out.hdrx(), out.hdrx(), (void*)out.offset());
 
 	return pPtr;
 }
@@ -113,24 +129,26 @@ SECTPtr<T> TSFL::AllocateSECT(SECTPtr<T*> out, int count)
 template<typename T>
 inline SECTPtr<T> TSFL::AllocateSECT(void* out, int count)
 {
+	// get currently selected SECT file
+	SECTFile* file = m_SECT->GetFile(m_activeHdrx);
+
 	assert(out != nullptr && "The pointer can't be null");
-	assert(m_SECT->IsPtrInBounds(out) && "The pointer isn't in bounds of SECT");
+	assert(file->IsPtrInBounds(out) && "The pointer isn't in bounds of SECT");
 
 	// getting a file relative pointer
-	size_t outUnlinked = (size_t)out - (size_t)m_SECT->GetBuffer();
+	size_t outUnlinked = (size_t)out - (size_t)file->GetBuffer();
 
 	// allocating the memory
 	SECTPtr<T> pData = AllocateSECT<T>(count);
 
 	// getting the pointer that will store a pointer to the allocated memory
-	T** outLinked = (T**)(m_SECT->GetBuffer() + outUnlinked);
+	T** outLinked = (T**)(file->GetBuffer() + outUnlinked);
 
 	// saving the pointer to allocated memory
 	*outLinked = pData.data();
 
 	// saving the file relative pointer in RELC
-	// todo: hdrx
-	m_RELC->Add(0, 0, (void*)outUnlinked);
+	m_RELC->Add(pData.hdrx(), pData.hdrx(), (void*)outUnlinked);
 
 	return pData;
 }
