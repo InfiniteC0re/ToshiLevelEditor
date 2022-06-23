@@ -21,6 +21,8 @@ public:
 
 	virtual void Calculate(TSFL* tsfl);
 
+	size_t GetFileCount();
+
 private:
 	unsigned short m_flag1;
 	unsigned short m_flag2;

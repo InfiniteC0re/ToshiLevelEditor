@@ -51,7 +51,7 @@ public:
 	inline T* FindSymbol(std::string name) const;
 
 	/* Add symbol */
-	void AddSymbol(unsigned short hdrx, std::string name, short nameID, void* ptr);
+	void AddSymbol(unsigned short hdrx, std::string name, void* ptr);
 
 	/* Write to TRB */
 	virtual void Write(FILE* pFile);

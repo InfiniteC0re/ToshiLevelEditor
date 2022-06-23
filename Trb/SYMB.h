@@ -36,6 +36,9 @@ public:
 	/* Get name of entry by index */
 	const std::string GetEntryName(size_t index) const;
 
+	/* Generates name id hash of symbol */
+	const unsigned short CreateNameIDHash(std::string name) const;
+
 	/* Find Symbol in the list */
 	void* Find(std::string name) const;
 	
@@ -46,7 +49,7 @@ public:
 	void UnlinkSECT(SECT* pSect);
 
 	/* Create new symbol */
-	void Add(unsigned short hdrx, std::string name, short nameID, void* ptr);
+	void Add(unsigned short hdrx, std::string name, void* ptr);
 
 	/* Write to TRB */
 	virtual void Write(FILE* pFile);

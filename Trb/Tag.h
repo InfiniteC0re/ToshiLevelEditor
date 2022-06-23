@@ -15,6 +15,9 @@ public:
 	/* Recalculating size of the tag */
 	virtual void Calculate(TSFL* tsfl);
 
+	/* Aligns position to 4 bytes */
+	void ValidateAlignment(FILE* pFile);
+
 	char name[4];
 	size_t size;
 };

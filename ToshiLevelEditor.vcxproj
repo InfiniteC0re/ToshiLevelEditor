@@ -150,7 +150,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="samples\level.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Trb\SYMB.cpp" />
     <ClCompile Include="Trb\RELC.cpp" />
     <ClCompile Include="Trb\SECT.cpp" />
@@ -273,6 +273,7 @@
     <None Include="include\assimp\SmoothingGroups.inl" />
     <None Include="include\assimp\vector2.inl" />
     <None Include="include\assimp\vector3.inl" />
+    <None Include="sample_files\BTEC\BKG_LEGAL_NTSC.TRB" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

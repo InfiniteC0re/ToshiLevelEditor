@@ -45,7 +45,7 @@
     <ClCompile Include="Trb\Symbols\Database.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="samples\level.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -376,5 +376,6 @@
     <None Include="include\assimp\vector3.inl">
       <Filter>Файлы заголовков</Filter>
     </None>
+    <None Include="sample_files\BTEC\BKG_LEGAL_NTSC.TRB" />
   </ItemGroup>
 </Project>

@@ -13,16 +13,14 @@ TRBTag::TRBTag(FILE* pFile)
 	name[0] = 0;
 	size = 0;
 
+	ValidateAlignment(pFile);
 	ReadFileData(name, sizeof(name), 1, pFile);
 	ReadFileData(&size, sizeof(size), 1, pFile);
 }
 
 void TRBTag::Write(FILE* pFile)
 {
-	// aligning the Tag's start to 4 bytes
-	long pos = ftell(pFile);
-	int toAdd = 4 - pos % 4;
-	if (toAdd != 4) fseek(pFile, toAdd, SEEK_CUR);
+	ValidateAlignment(pFile);
 
 	// writing tag name
 	fwrite(name, 4, 1, pFile);
@@ -33,4 +31,12 @@ void TRBTag::Write(FILE* pFile)
 void TRBTag::Calculate(TSFL* tsfl)
 {
 	size = 0;
+}
+
+void TRBTag::ValidateAlignment(FILE* pFile)
+{
+	// aligning the Tag's start to 4 bytes
+	long pos = ftell(pFile);
+	int toAdd = 4 - pos % 4;
+	if (toAdd != 4) fseek(pFile, toAdd, SEEK_CUR);
 }

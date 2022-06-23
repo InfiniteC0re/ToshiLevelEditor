@@ -8,7 +8,7 @@
 
 int main()
 {
-	TRBFile file("sample_files/Meadowsouth_L0Mod2.trb");
+	TRBFile file("sample_files/BTEC/BKG_LEGAL_NTSC.TRB");
 	
 	TSFL* tsfl = file.GetTSFL();
 

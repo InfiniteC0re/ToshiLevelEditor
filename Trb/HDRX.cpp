@@ -41,3 +41,8 @@ void HDRX::Calculate(TSFL* tsfl)
 	m_fileCount = m_files.size();
 	size = sizeof(m_flag1) + sizeof(m_flag2) + sizeof(m_fileCount) + sizeof(HDRXFile) * m_fileCount;
 }
+
+size_t HDRX::GetFileCount()
+{
+	return m_fileCount;
+}

@@ -14,7 +14,7 @@ SYMB::SYMB(FILE* pFile) : TRBTag(pFile)
 {
 	isLinked = false;
 
-	int count;
+	size_t count;
 	ReadFileData(&count, sizeof(size_t), 1, pFile);
 	m_entries.resize(count);
 	m_entriesNames.resize(count);
@@ -65,9 +65,20 @@ const std::string SYMB::GetEntryName(size_t index) const
 	return "";
 }
 
+const unsigned short SYMB::CreateNameIDHash(std::string name) const
+{
+	int hash = 0;
+	for (size_t i = 0; i < name.size(); i++)
+	{
+		hash = ((hash << 5) & 0x1FFFE0) - hash + name[i];
+		hash &= 0xFFFF;
+	}
+	return hash;
+}
+
 void* SYMB::Find(std::string name) const
 {
-	int count = GetCount();
+	size_t count = GetCount();
 	for (size_t i = 0; i < count; i++)
 	{
 		if (m_entriesNames[i] == name) return m_entries[i].dataOffset;
@@ -83,7 +94,7 @@ void SYMB::LinkSECT(SECT* pSect)
 
 	unsigned int dataStart = (unsigned int)pSect->GetBuffer();
 
-	int count = GetCount();
+	size_t count = GetCount();
 	for (size_t i = 0; i < count; i++)
 	{
 		m_entries[i].dataOffset += dataStart;
@@ -99,7 +110,7 @@ void SYMB::UnlinkSECT(SECT* pSect)
 
 	unsigned int dataStart = (unsigned int)pSect->GetBuffer();
 
-	int count = GetCount();
+	size_t count = GetCount();
 	for (size_t i = 0; i < count; i++)
 	{
 		m_entries[i].dataOffset -= dataStart;
@@ -108,11 +119,11 @@ void SYMB::UnlinkSECT(SECT* pSect)
 	isLinked = false;
 }
 
-void SYMB::Add(unsigned short hdrx, std::string name, short nameID, void* ptr)
+void SYMB::Add(unsigned short hdrx, std::string name, void* ptr)
 {
 	m_entriesNames.push_back(name);
 
-	SYMBEntry symb{ hdrx, 0, nameID, (char*)ptr };
+	SYMBEntry symb{ hdrx, 0, CreateNameIDHash(name), (char*)ptr};
 	m_entries.push_back(symb);
 }
 
@@ -126,7 +137,7 @@ void SYMB::Write(FILE* pFile)
 	fwrite(m_entries.data(), sizeof(SYMBEntry) * count, 1, pFile);
 	
 	// writing names
-	for (int i = 0; i < m_entries.size(); i++)
+	for (size_t i = 0; i < m_entries.size(); i++)
 	{
 		fwrite(m_entriesNames[i].data(), m_entriesNames[i].length() + 1, 1, pFile);
 	}
@@ -138,7 +149,7 @@ void SYMB::Calculate(TSFL* tsfl)
 	size = sizeof(size_t) + sizeof(SYMBEntry) * m_entries.size();
 	size_t nameOffset = 0;
 
-	for (int i = 0; i < m_entries.size(); i++)
+	for (size_t i = 0; i < m_entries.size(); i++)
 	{
 		m_entries[i].nameOffset = nameOffset;
 
