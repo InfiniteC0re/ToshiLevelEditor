@@ -95,7 +95,7 @@ void* TSFL::DumpSECT(const char* filepath)
 	return nullptr;
 }
 
-void TSFL::AddSymbol(unsigned short hdrx, std::string name, short nameID, void* ptr)
+void TSFL::AddSymbol(unsigned short hdrx, std::string name, void* ptr)
 {
 	// unlinking all symbols before adding a new one
 	Unlink();
@@ -105,7 +105,7 @@ void TSFL::AddSymbol(unsigned short hdrx, std::string name, short nameID, void* 
 
 	// getting a file relative pointer
 	size_t outUnlinked = (size_t)ptr - (size_t)m_SECT->GetBuffer();
-	m_SYMB->Add(hdrx, name, nameID, (void*)outUnlinked);
+	m_SYMB->Add(hdrx, name, (void*)outUnlinked);
 	
 	// linking them back
 	Link();
