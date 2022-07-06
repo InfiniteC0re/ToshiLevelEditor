@@ -63,6 +63,11 @@ SECT::SECT(FILE* pFile, HDRX* hdrx) : TRBTag(pFile)
 
 SECT::~SECT()
 {
+	for (SECTFile* file : m_files)
+	{
+		delete file;
+	}
+
 	m_files.clear();
 }
 
@@ -275,7 +280,10 @@ SECTFile::SECTFile(unsigned short hdrx)
 
 SECTFile::~SECTFile()
 {
-	if (m_buffer) delete[] m_buffer;
+	if (m_buffer)
+	{
+		delete[] m_buffer;
+	}
 }
 
 void* SECTFile::AllocMem(size_t size)

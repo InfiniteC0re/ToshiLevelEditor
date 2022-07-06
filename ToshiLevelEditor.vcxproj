@@ -157,6 +157,7 @@
     <ClCompile Include="trb\HDRX.cpp" />
     <ClCompile Include="Trb\Symbols\Database.cpp" />
     <ClCompile Include="Trb\Symbols\Materials.cpp" />
+    <ClCompile Include="Trb\Symbols\TerrainVIS.cpp" />
     <ClCompile Include="trb\TRBFile.cpp" />
     <ClCompile Include="Trb\Tag.cpp" />
     <ClCompile Include="Trb\TSFL.cpp" />
@@ -256,9 +257,14 @@
     <ClInclude Include="Defines.h" />
     <ClInclude Include="Trb\Symbols\FileHeader.h" />
     <ClInclude Include="Trb\Symbols\Header.h" />
+    <ClInclude Include="Trb\Symbols\Locators.h" />
+    <ClInclude Include="Trb\Symbols\LocatorVIS.h" />
+    <ClInclude Include="Trb\Symbols\LODMesh.h" />
     <ClInclude Include="Trb\Symbols\Materials.h" />
     <ClInclude Include="Trb\Symbols\Skeleton.h" />
     <ClInclude Include="Trb\Symbols\SkeletonHeader.h" />
+    <ClInclude Include="Trb\Symbols\TerrainVIS.h" />
+    <ClInclude Include="Trb\Symbols\TTL.h" />
     <ClInclude Include="trb\TRBFile.h" />
     <ClInclude Include="Trb\Tag.h" />
     <ClInclude Include="Trb\Utils.h" />

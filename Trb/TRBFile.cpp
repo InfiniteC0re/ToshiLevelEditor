@@ -14,7 +14,7 @@ TRBFile::TRBFile(const char* path)
 	m_TSFL = nullptr;
 	m_err = fopen_s(&file, path, "rb");
 	assert(m_err == 0 && "Unable to open the file");
-
+	
 	if (file)
 	{
 		// read the file

@@ -5,6 +5,7 @@
 #include "../Trb/TRBFile.h"
 #include "../Trb/Symbols/Materials.h"
 #include "../Trb/Symbols/Collision.h"
+#include "../Trb/Symbols/Database.h"
 
 #include <NvTriStrip.h>
 #include <assimp/cimport.h>
@@ -106,8 +107,8 @@ int main()
 			aiMesh* aimesh = meshes[i];
 
 			auto mesh = tsfl->AllocateSECT<Database::Mesh>(&pMeshes.data()[i]);
-			mesh.data()->m_origin = { 0, 0, 0 };
-			mesh.data()->m_radius = 256;
+			mesh.data()->m_sphere.m_origin = { 0, 0, 0 };
+			mesh.data()->m_sphere.m_radius = 256;
 
 			auto meshData = tsfl->AllocateSECT<Database::MeshData>(&mesh.data()->m_meshData);
 
@@ -125,14 +126,21 @@ int main()
 				meshData.data()->m_vertices[k].pos = aimesh->mVertices[k];
 
 				// uv
-				Vector3 texCoords = aimesh->mTextureCoords[0][k];
-				meshData.data()->m_vertices[k].uv = { texCoords.x, -texCoords.y };
+				if (aimesh->HasTextureCoords(0))
+				{
+					Vector3 texCoords = aimesh->mTextureCoords[0][k];
+					meshData.data()->m_vertices[k].uv = { texCoords.x, -texCoords.y };
+				}
+				else
+				{
+					meshData.data()->m_vertices[k].uv = { 0, 0 };
+				}
 
 				// normals
 				meshData.data()->m_vertices[k].normal = *aimesh->mNormals;
 
 				// shadows
-				meshData.data()->m_vertices[k].tint = { 1, 1, 1 };
+				meshData.data()->m_vertices[k].color = { 1, 1, 1 };
 			}
 
 			std::vector<unsigned short> indices;

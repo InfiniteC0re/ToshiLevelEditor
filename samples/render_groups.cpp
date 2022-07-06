@@ -6,16 +6,17 @@
 void GetMeshRenderGroupInfo(Database::MeshRenderGroup* info)
 {
 	auto next = info->m_nextGroup;
-	auto last = info;
+	auto node = info;
 
-	while (next != 0) {
-		GetMeshRenderGroupInfo(&last[1]);
-		last = last->m_nextGroup;
-		next = last->m_nextGroup;
+	while (next != 0)
+	{
+		GetMeshRenderGroupInfo(&node[1]);
+		node = next;
+		next = node->m_nextGroup;
 	}
-
+	
 	// MeshRenderGroupData is created ONLY if there's no any last->m_nextGroup
-	Database::MeshRenderGroupData* data = (Database::MeshRenderGroupData*)&last[1];
+	Database::MeshRenderGroupData* data = (Database::MeshRenderGroupData*)&node[1];
 	std::cout << "Meshes in this group: " << data->m_meshCount << std::endl;
 
 	for (int i = 0; i < data->m_meshCount; i++)

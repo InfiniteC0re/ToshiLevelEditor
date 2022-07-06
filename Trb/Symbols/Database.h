@@ -3,13 +3,17 @@
 
 namespace Database
 {
+	struct Sphere
+	{
+		Vector3 m_origin;
+		float m_radius;
+	};
+
 	struct Vertex
 	{
 		Vector3 pos;
 		Vector3 normal;
-
-		/* Use { 1, 1, 1 } to disable shadows */
-		Vector3 tint;
+		Vector3 color;
 		Vector2 uv;
 	};
 
@@ -26,18 +30,13 @@ namespace Database
 
 	struct Mesh
 	{
-		/* Origin of the mesh */
-		Vector3 m_origin;
-		/* Radius at which the mesh will be visible */
-		float m_radius;
+		Sphere m_sphere;
 		MeshData* m_meshData;
 	};
 
-	/* the reason why I can't implement more than 1 mesh loading */
 	struct MeshRenderGroup
 	{
-		Vector3 m_origin;
-		float m_radius;
+		Sphere m_sphere;
 		/* if m_nextGroup is 0 then RIGHT after this structure there's a MeshRenderGroupData structure */
 		MeshRenderGroup* m_nextGroup;
 	};

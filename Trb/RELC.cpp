@@ -12,12 +12,19 @@ RELC::RELC() : TRBTag("RELC", 0)
 
 RELC::RELC(FILE* pFile) : TRBTag(pFile)
 {
-	int count;
-	ReadFileData(&count, sizeof(size_t), 1, pFile);
-	assert(count >= 0 && "Count of RELC entries cannot be negative");
-	m_entries.resize(count);
-
-	ReadFileData(m_entries.data(), sizeof(RELCEntry), count, pFile);
+	if (strncmp(name, "RELC", 4) == 0)
+	{
+		int count;
+		ReadFileData(&count, sizeof(size_t), 1, pFile);
+		assert(count >= 0 && "Count of RELC entries cannot be negative");
+		m_entries.resize(count);
+		ReadFileData(m_entries.data(), sizeof(RELCEntry), count, pFile);
+	}
+	else
+	{
+		// RELC is missing so go back to make it possible to read SYMB
+		fseek(pFile, -8, SEEK_CUR);
+	}
 }
 
 RELC::~RELC()
