@@ -1,6 +1,6 @@
 # ToshiLevelEditor
 
-Games support:
+Supported games:
 - Barnyard (doesn't have shadows support yet)
 
 ## Building
